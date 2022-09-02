@@ -1,4 +1,5 @@
-import 'package:componentes/src/pages/home_temp.dart';
+import 'package:componentes/src/pages/home_page.dart';
+//import 'package:componentes/src/pages/home_temp.dart';
 import 'package:flutter/material.dart';
 
 // con el sniped mateapp te crea la app completa para iniciar
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Componentes',
       debugShowCheckedModeBanner: false,
-      home:HomePageTemp(),
+      home:HomePage(),
     );
   }
 }
