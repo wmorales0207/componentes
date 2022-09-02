@@ -24,7 +24,11 @@ class HomePageTemp extends StatelessWidget {
       final auxWidget = ListTile(
         title: Text(element.toString()),
         subtitle: const Text('Any thing'),
-        leading: const Icon(Icons.account_balance_wallet),
+        leading:
+            const Icon(Icons.account_balance_wallet), // el icono que va delante
+        trailing:
+            const Icon(Icons.keyboard_arrow_right), // el icono que va detras
+        onTap: () {}, // habilita el clic
       );
       list.add(auxWidget);
       list.add(const Divider(
