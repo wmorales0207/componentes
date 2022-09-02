@@ -1,3 +1,4 @@
+import 'package:componentes/src/pages/alert_page.dart';
 import 'package:componentes/src/provider/menu_provider.dart';
 import 'package:componentes/src/utils/icono_strings.dart';
 import 'package:flutter/material.dart';
@@ -60,12 +61,12 @@ class HomePage extends StatelessWidget {
           //print('object');
           //print(snapshot.data);
           return ListView(
-            children: _listaItems(snapshot.data),
+            children: _listaItems(snapshot.data, context),
           );
         });
   }
 
-  List<Widget> _listaItems(List<dynamic>? data) {
+  List<Widget> _listaItems(List<dynamic>? data, BuildContext context) {
     final List<Widget> opciones = [];
 
     if (data == null) {
@@ -82,7 +83,18 @@ class HomePage extends StatelessWidget {
           Icons.keyboard_arrow_right_outlined,
           color: Colors.green,
         ),
-        onTap: () {},
+        onTap: () {
+          final route =
+              MaterialPageRoute(builder: (context) => const AlertPage());
+
+          Navigator.push(
+              context, route); // el navigator necesita el context y la route
+          //(  el context contiene toda la info del entorno, del arbol de widget
+          //
+          // ) y una ruta.
+          //en este caso el context lo tenia ya en el future builder y solo lo pase como
+          // un parametro mas del metodo
+        },
       );
       opciones.add(temp);
       opciones.add(const Divider());
