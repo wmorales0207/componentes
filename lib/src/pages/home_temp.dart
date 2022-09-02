@@ -10,19 +10,21 @@ class HomePageTemp extends StatelessWidget {
         title: const Text("Componentes temp"),
       ),
       body: ListView(
-          //children: _crearItems(),
-          //children: _crearItems(),
-          ),
+        children: _crearItems(),
+        //children: _crearItemsCorta(),
+      ),
     );
   }
 
   List<Widget> _crearItems() {
-    List listValue = ['uno', 'dos', 'tres'];
+    List listValue = ['uno', 'dos', 'tres', 'cuatro', 'cuatro'];
 
     List<Widget> list = [];
     for (var element in listValue) {
       final auxWidget = ListTile(
         title: Text(element.toString()),
+        subtitle: const Text('Any thing'),
+        leading: const Icon(Icons.account_balance_wallet),
       );
       list.add(auxWidget);
       list.add(const Divider(
@@ -32,6 +34,7 @@ class HomePageTemp extends StatelessWidget {
     return list;
   }
 
+//revisar este metodo que tiene problemas.
   List<Widget> _crearItemsCorta() {
     List listValue = ['uno', 'dos', 'tres', 'tres', 'tres', 'seis'];
     List<Widget> salida = [];
