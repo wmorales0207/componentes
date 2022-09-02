@@ -10,8 +10,9 @@ class HomePageTemp extends StatelessWidget {
         title: const Text("Componentes temp"),
       ),
       body: ListView(
-        children: _crearItems(),
-      ),
+          //children: _crearItems(),
+          //children: _crearItems(),
+          ),
     );
   }
 
@@ -32,8 +33,20 @@ class HomePageTemp extends StatelessWidget {
   }
 
   List<Widget> _crearItemsCorta() {
+    List listValue = ['uno', 'dos', 'tres', 'tres', 'tres', 'seis'];
+    List<Widget> salida = [];
 
-    
-    return [];
+    var output = listValue.map((e) => {
+          ListTile(
+            title: e,
+          )
+        });
+    // la variable output obtiene un Iterable<Set<Widget>> por lo que es necesario metersed entro parasacar la info
+    output.forEach((element) {
+      element.forEach((element) {
+        salida.add(element);
+      });
+    });
+    return salida;
   }
 }
