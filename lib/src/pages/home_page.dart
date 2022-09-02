@@ -1,4 +1,5 @@
 import 'package:componentes/src/provider/menu_provider.dart';
+import 'package:componentes/src/utils/icono_strings.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -74,10 +75,9 @@ class HomePage extends StatelessWidget {
     data.forEach((element) {
       final Widget temp = ListTile(
         title: Text(element['texto']),
-        leading: const Icon(
-          Icons.account_circle,
-          color: Colors.green,
-        ),
+        leading: getIcon(element[
+            'icon']), // se lee del Json un string y con el metodo se le asigna el icon semidinamicamente
+
         trailing: const Icon(
           Icons.keyboard_arrow_right_outlined,
           color: Colors.green,
