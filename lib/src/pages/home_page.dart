@@ -59,31 +59,34 @@ class HomePage extends StatelessWidget {
           //print('object');
           //print(snapshot.data);
           return ListView(
-            children: _listaItems(),
+            children: _listaItems(snapshot.data),
           );
         });
   }
 
-  List<Widget> _listaItems() {
-    return const [
-      ListTile(
-        title: Text('data'),
-      ),
-      Divider(
-        color: Colors.amberAccent,
-      ),
-      ListTile(
-        title: Text('data'),
-      ),
-      Divider(
-        color: Colors.amberAccent,
-      ),
-      ListTile(
-        title: Text('data'),
-      ),
-      Divider(
-        color: Colors.amberAccent,
-      ),
-    ];
+  List<Widget> _listaItems(List<dynamic>? data) {
+    final List<Widget> opciones = [];
+
+    if (data == null) {
+      return [];
+    } // al recibir un List<dynamic>? data que podrias ser null me obliga a verificarlo.
+
+    data.forEach((element) {
+      final Widget temp = ListTile(
+        title: Text(element['texto']),
+        leading: const Icon(
+          Icons.account_circle,
+          color: Colors.green,
+        ),
+        trailing: const Icon(
+          Icons.keyboard_arrow_right_outlined,
+          color: Colors.green,
+        ),
+        onTap: () {},
+      );
+      opciones.add(temp);
+      opciones.add(const Divider());
+    });
+    return opciones;
   }
 }
