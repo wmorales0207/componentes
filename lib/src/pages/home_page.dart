@@ -84,11 +84,15 @@ class HomePage extends StatelessWidget {
           color: Colors.green,
         ),
         onTap: () {
-          final route =
+
+          Navigator.pushNamed(context, element['ruta']);// segun 
+
+
+          /* final route =
               MaterialPageRoute(builder: (context) => const AlertPage());
 
           Navigator.push(
-              context, route); // el navigator necesita el context y la route
+              context, route);*/ // el navigator necesita el context y la route
           //(  el context contiene toda la info del entorno, del arbol de widget
           //
           // ) y una ruta.
