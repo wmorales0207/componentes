@@ -1,4 +1,5 @@
 import 'package:componentes/src/pages/alert_page.dart';
+import 'package:componentes/src/pages/animated_container.dart';
 import 'package:componentes/src/pages/avatar_page.dart';
 import 'package:componentes/src/pages/card_pages.dart';
 import 'package:componentes/src/pages/home_page.dart';
@@ -13,6 +14,7 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   "alert": (context) => const AlertPage(),
   "avatar": (context) => const AvatarPage(),
   "card": (context) => const CardPage(),
+  "animatedContained": (context) => const AnimatedContainerPage(),
   // si se deseara llamar desde una page a otra con pasar al metodo Navigator.pushNamed(context, String)
   // el string seria avatar 0 alert o / para ir al principal, normalmente un botton de regreso es lo que se usa
 };

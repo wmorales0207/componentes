@@ -15,6 +15,11 @@
             "ruta":"card",
             "icon":"folder_open",
             "texto":"Card-Tarjetas"
+        },
+        {
+            "ruta":"animatedContained",
+            "icon":"donut_large",
+            "texto":"Animated Contained"
         }
     ]
 }

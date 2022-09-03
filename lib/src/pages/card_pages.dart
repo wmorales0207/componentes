@@ -20,7 +20,7 @@ class CardPage extends StatelessWidget {
           ),
           // _cardTipo2(),
         ],
-        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal  : 40, vertical: 10),
       ),
     );
   }
