@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class CardPage extends StatelessWidget {
@@ -16,7 +18,7 @@ class CardPage extends StatelessWidget {
           const SizedBox(
             height: 30.0,
           ),
-          //_cardTipo2(),
+          _cardTipo2(),
         ],
         padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
       ),
@@ -25,6 +27,10 @@ class CardPage extends StatelessWidget {
 
   Widget _cardTipo1() {
     return Card(
+      elevation: 1.0,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(
+              20.0)), // trabaj con los bordes de las tarjetas
       child: Column(
         children: <Widget>[
           const ListTile(
@@ -53,9 +59,11 @@ class CardPage extends StatelessWidget {
     );
   }
 
-// este metido no funciono dice que no detecto el HOST en la uri.
+// este metodo no funciono dice que no detecto el HOST en la uri.
   Widget _cardTipo2() {
-    return Card(
+    final card = Container(
+      // el card se cambio a continer para ajustar mejor lo que se observa
+
       child: Column(
         children: <Widget>[
           // este widget garantiza una imagen previa que se mostrara mientras no se carga la imagen que se desea.
@@ -73,6 +81,28 @@ class CardPage extends StatelessWidget {
             child: const Text('new txto'),
           ),
         ],
+      ),
+    );
+    return Container(
+      // esto se hace para aprobechar las ventajas de un container para
+      // modificar lo que se ve dentro del mismo.
+
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30.0),
+        color: Colors.white,
+        boxShadow: const <BoxShadow>[
+          BoxShadow(
+            //boton con degradado
+            color: Colors
+                .black26, // pusimos color negro con indice de opacidad de 26
+            blurRadius: 10.0, // tama;o de la sombra
+            spreadRadius: 10.0, // que tanto se extiende la sombra
+            offset: Offset(10.0, 10.0), // determina la pos de la sombra
+          ),
+        ],
+      ),
+      child: ClipRect(
+        child: card,
       ),
     );
   }
