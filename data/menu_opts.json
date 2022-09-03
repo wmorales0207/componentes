@@ -20,6 +20,11 @@
             "ruta":"animatedContained",
             "icon":"donut_large",
             "texto":"Animated Contained"
+        },
+        {
+            "ruta":"inputs",
+            "icon":"input",
+            "texto":"inputs"
         }
     ]
 }
