@@ -18,7 +18,7 @@ class CardPage extends StatelessWidget {
           const SizedBox(
             height: 30.0,
           ),
-          _cardTipo2(),
+          // _cardTipo2(),
         ],
         padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
       ),
@@ -27,7 +27,8 @@ class CardPage extends StatelessWidget {
 
   Widget _cardTipo1() {
     return Card(
-      elevation: 1.0,
+      elevation: 0.0,
+      
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
               20.0)), // trabaj con los bordes de las tarjetas
