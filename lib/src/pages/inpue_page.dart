@@ -12,6 +12,8 @@ class _InputPageState extends State<InputPage> {
   String _email = '';
   String _pass = '';
   String _fecha = '';
+  List<String> _powerList = ['volar', 'rayos', 'laser'];
+  String _opcionSelecionada = 'volar';
 
   TextEditingController? _inputTextEditController = TextEditingController();
 
@@ -31,6 +33,8 @@ class _InputPageState extends State<InputPage> {
           _crearPassword(),
           const Divider(),
           _crearFecha(context),
+          const Divider(),
+          crearDropDown(),
           const Divider(),
           _crearPersona(),
         ],
@@ -66,6 +70,7 @@ class _InputPageState extends State<InputPage> {
     return ListTile(
       title: Text('Nombre es $_nombre'),
       subtitle: Text('el Email de la persona es $_email'),
+      trailing: Text(_opcionSelecionada),
     );
   }
 
@@ -158,5 +163,39 @@ class _InputPageState extends State<InputPage> {
         _inputTextEditController!.text = _fecha;
       });
     }
+  }
+
+  List<DropdownMenuItem<String>> getMenuOpt() {
+    List<DropdownMenuItem<String>> list = [];
+    for (var element in _powerList) {
+      list.add(DropdownMenuItem(
+        value: element,
+        child: Text(element),
+      ));
+    }
+    return list;
+  }
+
+  Widget crearDropDown() {
+    return Expanded(// este widget permite expandir tod el combo hasta lo ancho de la app
+      child: Row(// envolver el DropdownButton en un Row te pemite ponerle children lo que sig 
+      // poder definirle un conjunto de opciones visuales 
+        children: <Widget>[
+          const Icon(Icons.select_all),
+          const SizedBox(
+            width: 30.0,
+          ),
+          DropdownButton(
+            value: _opcionSelecionada,
+            items: getMenuOpt(),
+            onChanged: (value) {
+              setState(() {
+                _opcionSelecionada = value.toString();
+              });
+            },
+          )
+        ],
+      ),
+    );
   }
 }
