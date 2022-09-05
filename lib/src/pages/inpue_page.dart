@@ -11,9 +11,9 @@ class _InputPageState extends State<InputPage> {
   String _nombre = '';
   String _email = '';
   String _pass = '';
-  String? _fecha = '';
+  String _fecha = '';
 
-  final _inputTextEditController = TextEditingController();
+  TextEditingController? _inputTextEditController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +115,10 @@ class _InputPageState extends State<InputPage> {
     return TextField(
       enableInteractiveSelection:
           false, // no se desea que la persona interactue con el widget
-      controller: _inputTextEditController,
+      controller:
+          _inputTextEditController, // este campo del textfield es un observador eventos que permite que cuando se genere el evento
+      // de clic o que se ejecute algun modal(nueva ventana ) todo lo que se seleccione se puede traer al controller. el controller controla
+      // lo que se edita en el txtField.
       decoration: const InputDecoration(
         hintText: 'fecha de nacimiento ',
         labelText: 'fecha de nacimiento',
@@ -135,16 +138,25 @@ class _InputPageState extends State<InputPage> {
   }
 
   _selectDate(BuildContext context) async {
-    DateTime? _picked = await showDatePicker(
+    DateTime? picked = await showDatePicker(
       // como que la funcion showDatePicker devuelve un future <datetime> es encesario el uso de asyn await
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(2018),
       lastDate: DateTime(2025),
+      locale: const Locale('es', 'ES'), // cuando se anade esta linea Falla.Da
+      // el error formatFulldate (necesita el flutter Localization), que se resuelve anadiendo una dependencia en el pubspec
+      //flutter_localizations:
+      //sdk: flutter
     );
-    setState(() {
-      _fecha = (_picked != null) ? _picked.toString() : null;
-      _inputTextEditController = _fecha;
-    });
+
+    if (picked != null) {
+      setState(() {
+        _fecha = picked.toString();
+
+// esta linea no funciona revisar. no se a;ade lo que se selecciona al componente que muestra la fecha.
+        _inputTextEditController!.text = _fecha;
+      });
+    }
   }
 }
