@@ -10,19 +10,22 @@ class SliderPAge extends StatefulWidget {
 class _SliderPAgeState extends State<SliderPAge> {
   double _sliderValue = 100.0;
 
+  bool _bloquearCheck = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sliders1'),
+        title: const Text('Sliders'),
       ),
       body: Container(
-        padding: const EdgeInsets.only(
-            top: 10.0), // separacion en la parte superior del Slider
+        // padding: const EdgeInsets.only(
+        //     top: 10.0), // separacion en la parte superior del Slider
         child: Column(
           children: <Widget>[
             _creaSlider(),
-            _crearImagen(),
+            _crearCheckBox(),
+            Expanded(child: _crearImagen()),
           ],
         ),
       ),
@@ -35,14 +38,16 @@ class _SliderPAgeState extends State<SliderPAge> {
         activeColor: Colors.indigo,
         label: 'Tamano de la image',
         //divisions: 20, divide el slider en posiciones
-        min: 10.0,
-        max: 400.0,
+        min: 0.0,
+        max: 100.0,
         value: 10.0,
-        onChanged: (value) {
-          setState(() {
-            _sliderValue = value;
-          });
-        },
+        onChanged: (_bloquearCheck)
+            ? null
+            : (value) {
+                setState(() {
+                  _sliderValue = value;
+                });
+              },
       ),
     );
   }
@@ -52,6 +57,32 @@ class _SliderPAgeState extends State<SliderPAge> {
       image: const AssetImage('assets/darling.jpg'),
       width: _sliderValue,
       fit: BoxFit.contain,
+    );
+  }
+
+  Widget _crearCheckBox() {
+    // return Checkbox(
+    //   value: _bloquearCheck,
+    //   onChanged: (value) {
+    //     // si el on change se le pone null este se dasabilita.
+    //     setState(() {
+    //       _bloquearCheck = value!;
+    //       // esta variable es del tipo que permite
+    //       //null u con el indicador ! le estoy  diciendo que lo que recibe siempre tendra valor
+    //     });
+    //   },
+    // );
+    return CheckboxListTile(
+      title: const Text('Bloquear Sliders'),
+      value: _bloquearCheck,
+      onChanged: (value) {
+        // si el on change se le pone null este se dasabilita.
+        setState(() {
+          _bloquearCheck = value!;
+          // esta variable es del tipo que permite
+          //null u con el indicador ! le estoy  diciendo que lo que recibe siempre tendra valor
+        });
+      },
     );
   }
 }
