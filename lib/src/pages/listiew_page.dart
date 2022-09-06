@@ -53,21 +53,25 @@ class _ListViewBuilderPageState extends State<ListViewBuilderPage> {
 
   Widget _crearListas() {
     // el  mtodo itemBuilder es el que se encaragara de redibujar los elemnetos de la lista,
-    return ListView.builder(
-      // este widget se redibuja para cada elemento de la lista .
-      controller:
-          _scrollController, // esta propiedad es usada para poder ponerle el valor al widget, esto se uso en el Textbox cuando se disparo un modal que te permitia
-      // sacar la fecha y con el controller que es un especie de listener que actua ante un evento.
-      itemBuilder: (context, index) {
-        // index es la posicion del elemento que esta creando en cada instante
-        final imagen = _listaNumeros[index];
-        return FadeInImage(
-          // se usa este componente ya que permite poner una imagen previa mientras se gestiona la de internet
-          placeholder: const AssetImage('assets/darling.jpg'),
-          image: NetworkImage('https://picsum.photos/200/200/?image=$imagen'),
-        );
-      },
-      itemCount: _listaNumeros.length,
+    return RefreshIndicator(
+      onRefresh:
+          _obtenerPagina1, // este metodo se llama sin () porque no se desea que se ejecute en el momento, solo cuando se cumplan det condiciones.
+      child: ListView.builder(
+        // este widget se redibuja para cada elemento de la lista .
+        controller:
+            _scrollController, // esta propiedad es usada para poder ponerle el valor al widget, esto se uso en el Textbox cuando se disparo un modal que te permitia
+        // sacar la fecha y con el controller que es un especie de listener que actua ante un evento.
+        itemBuilder: (context, index) {
+          // index es la posicion del elemento que esta creando en cada instante
+          final imagen = _listaNumeros[index];
+          return FadeInImage(
+            // se usa este componente ya que permite poner una imagen previa mientras se gestiona la de internet
+            placeholder: const AssetImage('assets/darling.jpg'),
+            image: NetworkImage('https://picsum.photos/200/200/?image=$imagen'),
+          );
+        },
+        itemCount: _listaNumeros.length,
+      ),
     );
   }
 
@@ -82,7 +86,7 @@ class _ListViewBuilderPageState extends State<ListViewBuilderPage> {
   Future _fetchData() async {
     _isLoading = true;
     setState(() {});
-    final duration = Duration(seconds: 3);
+    final duration = Duration(seconds: 4);
 
     return Timer(duration,
         respuestaHTTP); // los parentesis no se ponen en la funcion respuestaHTTP ya que la ejecutaria en el instante y la idea
@@ -128,5 +132,20 @@ class _ListViewBuilderPageState extends State<ListViewBuilderPage> {
     } else {
       return Container(); // siempre se debe devolver un widget y de esta forma se logra una devolucion que no trae problemas.
     }
+  }
+
+  Future<void> _obtenerPagina1() async {
+    // me llama la atencion de que esta es una funcion que no devuelve nada sin embargo tiene un return
+    // no se si por ser un future pero me causa dudas
+    final duration = Duration(seconds: 2);
+    Timer(
+      duration,
+      () {
+        _listaNumeros.clear();
+        _agegar10();
+      },
+    );
+
+    return Future.delayed(duration);
   }
 }
