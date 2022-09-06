@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class ListViewBuilderPage extends StatefulWidget {
@@ -13,12 +15,13 @@ class _ListViewBuilderPageState extends State<ListViewBuilderPage> {
   List<int> _listaNumeros = [];
 
   var _ultimoItem = 0;
+  bool _isLoading = false;
 
   @override
   void initState() {
     // este metodo se ejecuta antes de pintarse todo, puede usarse para cargar cosas antes de que se pinte la app.
     super.initState();
-    _agegar10(); // este metodo llena la lista
+    _agegar10(); // este metodo llena la
 
     _scrollController.addListener(() {
       // ESTA funcion no fue necesaria cuando se mostro en el texbox lo seleccion de la fecha,
@@ -27,7 +30,8 @@ class _ListViewBuilderPageState extends State<ListViewBuilderPage> {
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
         // si la posicion de pixeles del scrol esta en su poso max sig que esta en el final
-        _agegar10();
+        //_agegar10();
+        _fetchData();
       }
     });
   }
@@ -35,11 +39,16 @@ class _ListViewBuilderPageState extends State<ListViewBuilderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('ListView Builder'),
-      ),
-      body: _crearListas(),
-    );
+        appBar: AppBar(
+          title: const Text('ListView Builder'),
+        ),
+        body: Stack(
+          // este componente es parecido a Row o Comumn , lo que este apila los widget , uno encima de otros
+          children: [
+            _crearListas(),
+            _crearLoading(),
+          ],
+        ));
   }
 
   Widget _crearListas() {
@@ -68,5 +77,56 @@ class _ListViewBuilderPageState extends State<ListViewBuilderPage> {
       _listaNumeros.add(_ultimoItem);
     }
     setState(() {});
+  }
+
+  Future _fetchData() async {
+    _isLoading = true;
+    setState(() {});
+    final duration = Duration(seconds: 3);
+
+    return Timer(duration,
+        respuestaHTTP); // los parentesis no se ponen en la funcion respuestaHTTP ya que la ejecutaria en el instante y la idea
+    // es que matenga la referencia para cuando haga falta. aca se le pasa el tiempo que debe transcurrir antes que se ejecute el segundo parametro,
+    // el segundo parametro es una funcion que se ejecuta pasado el tiempo definido en el Duration.
+  }
+
+  void respuestaHTTP() {
+    _isLoading =
+        false; // De esta forma si se detecta qu hay mas fotos en el scroll se define un comportamiento
+    _scrollController.animateTo(
+        _scrollController.position.pixels +
+            100, // con esto se muestra parte de la siguente foto
+        duration: const Duration(
+            milliseconds: 250), // se define el tiempo que durara la animacion
+        curve: Curves.fastOutSlowIn); // el tipo de animacion elegida.
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    // que pasa en este widget, que los listener se crean todas las veces que se accede a esta interfaz y es necesario liberar los recursos, , eliminanrlos
+    _scrollController.dispose();
+  }
+
+  Widget _crearLoading() {
+    // este metodo muestra un loading que depende la la var loading
+    if (_isLoading) {
+      return Column(
+        // toda esta info esta asociada a poder centrar el widget en el centro inferir de la pantalla.
+        children: [
+          Row(
+            children: const [
+              // este CircularProgressIndicator debe depender de otros componentes pues el setState debe jugar su papel
+              CircularProgressIndicator(),
+            ],
+          ),
+          const SizedBox(
+            height: 15.0,
+          ),
+        ],
+      );
+    } else {
+      return Container(); // siempre se debe devolver un widget y de esta forma se logra una devolucion que no trae problemas.
+    }
   }
 }
