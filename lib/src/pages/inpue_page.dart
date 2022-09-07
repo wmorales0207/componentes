@@ -149,7 +149,7 @@ class _InputPageState extends State<InputPage> {
       initialDate: DateTime.now(),
       firstDate: DateTime(2018),
       lastDate: DateTime(2025),
-      locale: const Locale('es', 'ES'), // cuando se anade esta linea Falla.Da
+      //locale: const Locale('es', 'ES'), // cuando se anade esta linea Falla.Da
       // el error formatFulldate (necesita el flutter Localization), que se resuelve anadiendo una dependencia en el pubspec
       //flutter_localizations:
       //sdk: flutter
@@ -177,9 +177,11 @@ class _InputPageState extends State<InputPage> {
   }
 
   Widget crearDropDown() {
-    return Expanded(// este widget permite expandir tod el combo hasta lo ancho de la app
-      child: Row(// envolver el DropdownButton en un Row te pemite ponerle children lo que sig 
-      // poder definirle un conjunto de opciones visuales 
+    return Expanded(
+      // este widget permite expandir tod el combo hasta lo ancho de la app
+      child: Row(
+        // envolver el DropdownButton en un Row te pemite ponerle children lo que sig
+        // poder definirle un conjunto de opciones visuales
         children: <Widget>[
           const Icon(Icons.select_all),
           const SizedBox(

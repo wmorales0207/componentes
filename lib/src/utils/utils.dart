@@ -1,1 +1,0 @@
-export 'package:componentes/src/routes_page.dart';

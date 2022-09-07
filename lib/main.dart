@@ -1,9 +1,8 @@
-import 'package:flutter_localizations/flutter_localizations.dart'; // esta importacion es necesaria para trabajar con los idiomas
+import 'package:componentes/src/pages/alert_page.dart';
+import 'package:componentes/src/routes_page.dart';
+//import 'package:flutter_localizations/flutter_localizations.dart'; // esta importacion es necesaria para trabajar con los idiomas
 
 import 'package:flutter/material.dart';
-
-import 'src/pages/pages.dart';
-import 'src/utils/utils.dart';
 
 // con el sniped mateapp te crea la app completa para iniciar
 // siempre veo que inician con un StatelessWidget parece asunto de diseno
@@ -18,15 +17,15 @@ class MyApp extends StatelessWidget {
       title: 'Componentes',
       debugShowCheckedModeBanner: false,
       // esta configuracion es necesaria para que se reconozcan los idiomas, se obtuvo de la documentacion de Flutter pag oficial
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      // esta es la segunda parte de la config de los idiomas , sonn los idiomas permitodos.
-      supportedLocales: const [
-        Locale('es', 'ES'),
-        Locale('en', 'US'),
-      ],
+      // localizationsDelegates:  [
+      //   GlobalMaterialLocalizations.delegate,
+      //   GlobalWidgetsLocalizations.delegate,
+      // ],
+      // // esta es la segunda parte de la config de los idiomas , sonn los idiomas permitodos.
+      // supportedLocales: const [
+      //   Locale('es', 'ES'),
+      //   Locale('en', 'US'),
+      // ],
 
       //home:HomePage(),
       initialRoute: '/', // define una ruta por defecto

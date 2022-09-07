@@ -1,9 +1,26 @@
+import 'package:componentes/src/pages/Account.dart';
+import 'package:componentes/src/pages/person_page.dart';
+import 'package:componentes/src/pages/setting_page.dart';
 import 'package:componentes/src/provider/menu_provider.dart';
 import 'package:componentes/src/utils/icono_strings.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var _selectedIndex = 0;
+
+  final List<Widget> _WidgetList = const [
+    SettingPage(),
+    AccountPage(),
+    PersonPage(),
+    
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +49,22 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
-      body: _lista(),
-      bottomNavigationBar: BottomNavigationBar(items: const [// este componente da error si se le pone menos de 2 elementos, y si se le pone mas  de 3 
-      // hay que definirle 
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.first_page)),
-        BottomNavigationBarItem(icon: Icon(Icons.first_page)),
-      ]),
+      body:  (_selectedIndex==0)? _lista(): _WidgetList[_selectedIndex],// si seleciona el 0 carga a home sino cualquiera de las demas pages
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex:
+              _selectedIndex, // esta properties define el que esta activo.
+        onTap:
+            _navigateBottonBar, // este metodo no tiene el () para que no se ejecute con el hilo de ejecucion,
+        items: const [
+          // este componente da error si se le pone menos de 2 elementos, y si se le pone mas  de 3
+          // hay que definirle mas la propertie type: BottomNavigationBarType.fixed. sino se   no se ven en el botton.
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.message), label: 'Message'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Setting'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Person'),
+        ],
+        type: BottomNavigationBarType.fixed,
+      ),
     );
   }
 
@@ -52,7 +78,7 @@ class HomePage extends StatelessWidget {
     /* Nota> Aclarar que aca hay un problema resulta que el constructor de menuProvider 
     se demora en ejecutarse y el ListView se ejecuta antes de que llegue el resultado por
     lo que nunca se pintara en la pantalla el resulatdo esperado. por lo que es necesario el uso del
-    Sync Await, en el CArgardata, para que no devuelva el objeto sin el campo Opciones lleno de info
+    Sync Await, en el CArgardata, para que no devuelva el objeto sin el campo Opciones este lleno de info
     
 
     return ListView(
@@ -107,5 +133,13 @@ class HomePage extends StatelessWidget {
       opciones.add(const Divider());
     });
     return opciones;
+  }
+
+  void _navigateBottonBar(int value) {
+    // en el OnTap viene el ID del Item al que se le hizo clic.
+    // apoyandose con la property currentIndex selecciona el BottomNavigationBarItem al que se le hace clic.
+    setState(() {
+      _selectedIndex = value;
+    });
   }
 }
