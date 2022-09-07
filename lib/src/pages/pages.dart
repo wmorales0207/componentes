@@ -1,0 +1,9 @@
+export 'package:componentes/src/pages/absob_Pointer.dart';
+export 'package:componentes/src/pages/alert_page.dart';
+export 'package:componentes/src/pages/animated_container.dart';
+export 'package:componentes/src/pages/avatar_page.dart';
+export 'package:componentes/src/pages/card_pages.dart';
+export 'package:componentes/src/pages/home_page.dart';
+export 'package:componentes/src/pages/inpue_page.dart';
+export 'package:componentes/src/pages/listiew_page.dart';
+export 'package:componentes/src/pages/slider_page.dart';

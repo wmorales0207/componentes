@@ -1,7 +1,9 @@
-import 'package:componentes/src/pages/alert_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart'; // esta importacion es necesaria para trabajar con los idiomas
-import 'package:componentes/src/routes_page.dart';
+
 import 'package:flutter/material.dart';
+
+import 'src/pages/pages.dart';
+import 'src/utils/utils.dart';
 
 // con el sniped mateapp te crea la app completa para iniciar
 // siempre veo que inician con un StatelessWidget parece asunto de diseno

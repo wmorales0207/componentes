@@ -35,6 +35,11 @@
             "ruta":"list",
             "icon":"list",
             "texto":"listas y Scroll"
+        },
+        {
+            "ruta":"absorbPointer",
+            "icon":"point_of_sale",
+            "texto":"Absorb Pointer "
         }
     ]
 }

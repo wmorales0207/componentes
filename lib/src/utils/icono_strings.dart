@@ -10,7 +10,7 @@ final _icons = <String, IconData>{
   "input": Icons.input,
   "tune": Icons.tune,
   "list": Icons.list,
-
+  "point_of_sale": Icons.point_of_sale,
 };
 
 Icon getIcon(String nombreIcono) {

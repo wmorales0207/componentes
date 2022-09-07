@@ -1,4 +1,3 @@
-import 'package:componentes/src/pages/alert_page.dart';
 import 'package:componentes/src/provider/menu_provider.dart';
 import 'package:componentes/src/utils/icono_strings.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +33,12 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: _lista(),
+      bottomNavigationBar: BottomNavigationBar(items: const [// este componente da error si se le pone menos de 2 elementos, y si se le pone mas  de 3 
+      // hay que definirle 
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+        BottomNavigationBarItem(icon: Icon(Icons.first_page)),
+        BottomNavigationBarItem(icon: Icon(Icons.first_page)),
+      ]),
     );
   }
 
@@ -84,9 +89,7 @@ class HomePage extends StatelessWidget {
           color: Colors.green,
         ),
         onTap: () {
-
-          Navigator.pushNamed(context, element['ruta']);// segun 
-
+          Navigator.pushNamed(context, element['ruta']); // segun
 
           /* final route =
               MaterialPageRoute(builder: (context) => const AlertPage());
