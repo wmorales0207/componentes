@@ -6,29 +6,33 @@ class ContainedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[300],
       appBar: AppBar(
         title: const Text('Container17'),
       ),
       body: Center(
         child: Container(
-          height: 300.0,
-          width: 300.0,
-          //alignment: Alignment.bottomCenter,
-          alignment: Alignment(-1,
-              1), // tambien se le pasan valores por defecto al cntructor. (-1,-1) esquina inferior derecha, entre -1 y 1 doubeles son lo limites
+          height: 250.0,
+          width: 250.0,
+          //color: Colors.grey[300],
 
-          //color: Colors.lightBlue,// si defines un decoration debes desabilitar esta propiedad
           decoration: BoxDecoration(
-            // si defines un deoration debes definir tambienen color inside the decoration
-            // borderRadius: BorderRadius.circular(
-            //     15.0), // miestras mayor es el numero mayor se redondean las puntas, claro es n container cuadtradp
-            //color: Colors.deepPurpleAccent,
-            //shape: BoxShape.circle,
-            border: Border.all(color: Colors.black12, width: 12.0),
-
-            //shape: BoxShape.circle  //aca podemos definir que sea circulo.. y ya el cuadrado se convierte en un circulo
-            borderRadius: BorderRadius.circular(
-                10.0), // un rectangulo con las esquinas ovaladas
+            borderRadius: BorderRadius.circular(15.0),
+            // color: Colors.grey[300],
+            boxShadow: [
+              BoxShadow(
+                  color: Colors
+                      .grey.shade500, // aca se define el color de la sombra
+                  offset: Offset(4.0, 4.0), //la ubicacion de la sombra
+                  blurRadius: 15.0, // esta realcionado tambien con la expansion de la sombra
+                  spreadRadius: 1.0), // que tanto se quiere que se expanda
+              BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(-4.0, -4.0),
+                  blurRadius: 15.0,
+                  spreadRadius: 1.0),
+            ],
+            // shape: BoxShape.circle,
           ),
           child: const Text(
             'Testing',
