@@ -11,10 +11,11 @@ class ContainedPage extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          height: 200.0,
-          width: 200.0,
-          padding: EdgeInsets.all(
-              40.0), // este paddin afecta al child dentro dal container.
+          height: 300.0,
+          width: 300.0,
+          //alignment: Alignment.bottomCenter,
+          alignment: Alignment(-1,
+              1), // tambien se le pasan valores por defecto al cntructor. (-1,-1) esquina inferior derecha, entre -1 y 1 doubeles son lo limites
 
           //color: Colors.lightBlue,// si defines un decoration debes desabilitar esta propiedad
           decoration: BoxDecoration(
@@ -29,7 +30,11 @@ class ContainedPage extends StatelessWidget {
             borderRadius: BorderRadius.circular(
                 10.0), // un rectangulo con las esquinas ovaladas
           ),
-          child: Center(child: const Text('Testing')),// el center l ppone al centro ignorando el padding.
+          child: const Text(
+            'Testing',
+            //textAlign: TextAlign.right,
+            style: TextStyle(fontSize: 30.0),
+          ), // con el textAlign: TextAlign.right, de text tambien se puede definir posicion dentro de un contained
         ),
       ),
     );
