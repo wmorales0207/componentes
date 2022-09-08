@@ -40,6 +40,11 @@
             "ruta":"absorbPointer",
             "icon":"point_of_sale",
             "texto":"Absorb Pointer "
+        },
+        {
+            "ruta":"container",
+            "icon":"add_box_rounded",
+            "texto":"Container"
         }
     ]
 }

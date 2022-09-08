@@ -5,8 +5,16 @@ class PersonPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Person'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Container'),
+        leading: const Icon(
+          Icons.add_box_rounded,
+        ),
+      ),
+      body: const Center(
+        child: Text('Person'),
+      ),
     );
   }
 }

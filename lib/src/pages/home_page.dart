@@ -19,17 +19,16 @@ class _HomePageState extends State<HomePage> {
     SettingPage(),
     AccountPage(),
     PersonPage(),
-    
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Componentes'),
+        title: const Text('Componentes Todos'),
         backgroundColor: Colors.deepPurple[300],
-        elevation: 0,
-        leading: IconButton(
+        elevation: 0,// no da sombra debajo del App bar
+        leading: IconButton(// va delante del tittle del appbar
           onPressed: () {},
           icon: const Icon(Icons.menu),
         ),
@@ -49,10 +48,13 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      body:  (_selectedIndex==0)? _lista(): _WidgetList[_selectedIndex],// si seleciona el 0 carga a home sino cualquiera de las demas pages
+      body: (_selectedIndex == 0)
+          ? _lista()
+          : _WidgetList[
+              _selectedIndex], // si seleciona el 0 carga a home sino cualquiera de las demas pages
       bottomNavigationBar: BottomNavigationBar(
         currentIndex:
-              _selectedIndex, // esta properties define el que esta activo.
+            _selectedIndex, // esta properties define el que esta activo.
         onTap:
             _navigateBottonBar, // este metodo no tiene el () para que no se ejecute con el hilo de ejecucion,
         items: const [
