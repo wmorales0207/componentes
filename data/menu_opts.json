@@ -45,6 +45,11 @@
             "ruta":"container",
             "icon":"add_box_rounded",
             "texto":"Container"
+        },
+        {
+            "ruta":"person",
+            "icon":"person_add_rounded",
+            "texto":"PersonList"
         }
     ]
 }

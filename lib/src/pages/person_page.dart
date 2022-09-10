@@ -9,7 +9,7 @@ class PersonPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Container'),
         leading: const Icon(
-          Icons.add_box_rounded,
+          Icons.person_add_rounded,
         ),
       ),
       body: const Center(

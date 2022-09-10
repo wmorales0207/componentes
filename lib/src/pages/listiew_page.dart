@@ -39,16 +39,17 @@ class _ListViewBuilderPageState extends State<ListViewBuilderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('ListView Builder'),
-        ),
-        body: Stack(
-          // este componente es parecido a Row o Comumn , lo que este apila los widget , uno encima de otros
-          children: [
-            _crearListas(),
-            _crearLoading(),
-          ],
-        ));
+      appBar: AppBar(
+        title: const Text('ListView Builder'),
+      ),
+      body: Stack(
+        // este componente es parecido a Row o Comumn , lo que este apila los widget , uno encima de otros
+        children: [
+          _crearListas(),
+          _crearLoading(),
+        ],
+      ),
+    );
   }
 
   Widget _crearListas() {
