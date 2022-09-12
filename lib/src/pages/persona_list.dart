@@ -9,10 +9,10 @@ class PersonList extends StatefulWidget {
 
 class _PersonListState extends State<PersonList> {
   final List<Persona> PersonList = [
-    Persona('bnaxsme', 'lastname', 'huiy87687yjk'),
-    Persona('snamxsxe', 'lastname', 'cohg67ihjk'),
-    Persona('xsxname', 'lastname', 'c,mkjiu987ijlk'),
-    Persona('rrname', 'lastname', '89789x7xc7x'),
+    Persona('Pepe', 'pires', 'huiy87687yjk'),
+    Persona('Ricardo', 'peres', 'cohg67ihjk'),
+    Persona('mailvi', 'morales', 'c,mkjiu987ijlk'),
+    Persona('mene', 'mesa', '89789x7xc7x'),
   ];
 
   @override
@@ -35,6 +35,7 @@ class _PersonListState extends State<PersonList> {
             .length, //si al builder no se le define la can el no sabria cuando parar
         itemBuilder: ((context, index) {
           return ListTile(
+            //es el widget elegido para mostrar los resiltados en una lista
             title:
                 Text('${PersonList[index].name} ${PersonList[index].lastname}'),
             subtitle: Text(PersonList[index].cod),
@@ -49,24 +50,31 @@ class _PersonListState extends State<PersonList> {
     );
   }
 
+//// este metodo esta pensado para borrar una persona de la lista es una caja de dialogo que contruye a otra
   _erasePerson(BuildContext context, Persona persona) {
     return showDialog(
         context: context,
         builder: (context) => AlertDialog(
-              title: Text('Eliminar Contacto'),
-              content: Text('Esta persona se debe eliminar a ${persona.name}'),
+              title: const Text('Eliminar Contacto'),
+              content:
+                  Text('Desea eliminar a ${persona.name}  ${persona.lastname}'),
               actions: [
                 TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text('Cancel'),
+                  child: const Text(
+                    'Cancel',
+                    style: TextStyle(color: (Colors.red)),
+                    
+                  ),
+                  
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text(
+                  child: const Text(
                     'Borrar',
                     style: TextStyle(color: Colors.blue),
                   ),

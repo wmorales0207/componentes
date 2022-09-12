@@ -13,6 +13,7 @@ final _icons = <String, IconData>{
   "point_of_sale": Icons.point_of_sale,
   "add_box_rounded": Icons.add_box_rounded,
   "person_add_rounded": Icons.person_add_rounded,
+  
 };
 
 Icon getIcon(String nombreIcono) {

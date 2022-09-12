@@ -50,6 +50,11 @@
             "ruta":"person",
             "icon":"person_add_rounded",
             "texto":"PersonList"
+        },
+        {
+            "ruta":"List2",
+            "icon":"person_add_rounded",
+            "texto":"PersonList2"
         }
     ]
 }
