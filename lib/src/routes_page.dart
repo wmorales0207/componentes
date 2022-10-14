@@ -1,9 +1,11 @@
+import 'package:componentes/src/pages/about_dialog_page.dart';
 import 'package:componentes/src/pages/absob_Pointer.dart';
 import 'package:componentes/src/pages/alert_page.dart';
 import 'package:componentes/src/pages/animated_container.dart';
 import 'package:componentes/src/pages/avatar_page.dart';
 import 'package:componentes/src/pages/card_pages.dart';
 import 'package:componentes/src/pages/contained_page.dart';
+import 'package:componentes/src/pages/hero_example.dart';
 import 'package:componentes/src/pages/home_page.dart';
 import 'package:componentes/src/pages/inpue_page.dart';
 import 'package:componentes/src/pages/list_view_pages/other_listview_page.dart';
@@ -19,7 +21,7 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   // esta map crea una asociacion entre lo que se se lee en el Json y la Pag que se desea cargar
   "/": (context) => HomePage(),
   "person": (context) => const PersonList(),
-  
+
   "List2": (context) => const OtherListPage(),
 
   "alert": (context) => const AlertPage(),
@@ -31,6 +33,9 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   "list": (context) => const ListViewBuilderPage(),
   "absorbPointer": (context) => const AbsorbPointerPage(),
   "container": (context) => const ContainedPage(),
+  "About": (context) => const AboutDialogPage(),
+  "Hero": (context) => const HeroExample(),
+
 
   // si se deseara llamar desde una page a otra con pasar al metodo Navigator.pushNamed(context, String)
   // el string seria avatar 0 alert o / para ir al principal, normalmente un botton de regreso es lo que se usa

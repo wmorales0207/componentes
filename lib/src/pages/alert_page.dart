@@ -44,7 +44,7 @@ class AlertPage extends StatelessWidget {
           content: Column(
             mainAxisSize: MainAxisSize.min, // ajusta el modal a tama;o minimo
             children: const <Widget>[
-              Text('Este es elcontenido de la caja'),
+              Text('Este es el contenido de la caja'),
               FlutterLogo(
                 size: 100.0,
               ),

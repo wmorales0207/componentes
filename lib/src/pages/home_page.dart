@@ -24,50 +24,51 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Componentes Todos'),
-        backgroundColor: Colors.deepPurple[300],
-        elevation: 0,// no da sombra debajo del App bar
-        leading: IconButton(// va delante del tittle del appbar
-          onPressed: () {},
-          icon: const Icon(Icons.menu),
+        appBar: AppBar(
+          title: const Text('Componentes Todos'),
+          backgroundColor: Colors.deepPurple[300],
+          elevation: 0, // no da sombra debajo del App bar
+          leading: IconButton(
+            // va delante del tittle del appbar
+            onPressed: () {},
+            icon: const Icon(Icons.menu),
+          ),
+          actions: [
+            // aca puedes poner botones al mismo nivel que el title.
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.share),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.person),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.logout),
+            )
+          ],
         ),
-        actions: [
-          // aca puedes poner botones al mismo nivel que el title.
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.share),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.person),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.logout),
-          )
-        ],
-      ),
-      body: (_selectedIndex == 0)
-          ? _lista()
-          : _WidgetList[
-              _selectedIndex], // si seleciona el 0 carga a home sino cualquiera de las demas pages
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex:
-            _selectedIndex, // esta properties define el que esta activo.
-        onTap:
-            _navigateBottonBar, // este metodo no tiene el () para que no se ejecute con el hilo de ejecucion,
-        items: const [
-          // este componente da error si se le pone menos de 2 elementos, y si se le pone mas  de 3
-          // hay que definirle mas la propertie type: BottomNavigationBarType.fixed. sino se   no se ven en el botton.
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.message), label: 'Message'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Setting'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Person'),
-        ],
-        type: BottomNavigationBarType.fixed,
-      ),
-    );
+        body: _lista()
+        //(_selectedIndex == 0)
+        //     ? _lista()
+        //     : _WidgetList[
+        //         _selectedIndex], // si seleciona el 0 carga a home sino cualquiera de las demas pages
+        // bottomNavigationBar: BottomNavigationBar(
+        //   currentIndex:
+        //       _selectedIndex, // esta properties define el que esta activo.
+        //   onTap:
+        //       _navigateBottonBar, // este metodo no tiene el () para que no se ejecute con el hilo de ejecucion,
+        //   items: const [
+        //     // este componente da error si se le pone menos de 2 elementos, y si se le pone mas  de 3
+        //     // hay que definirle mas la propertie type: BottomNavigationBarType.fixed. sino se   no se ven en el botton.
+        //     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+        //     BottomNavigationBarItem(icon: Icon(Icons.message), label: 'Message'),
+        //     BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Setting'),
+        //   ],
+        //   type: BottomNavigationBarType.fixed,
+        // ),
+        );
   }
 
   Widget _lista() {
@@ -106,7 +107,8 @@ class _HomePageState extends State<HomePage> {
       return [];
     } // al recibir un List<dynamic>? data que podrias ser null me obliga a verificarlo.
 
-    data.forEach((element) {
+    data.forEach((
+      element) {
       final Widget temp = ListTile(
         title: Text(element['texto']),
         leading: getIcon(element[

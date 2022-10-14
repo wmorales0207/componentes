@@ -55,6 +55,16 @@
             "ruta":"List2",
             "icon":"person_add_rounded",
             "texto":"PersonList2"
+        },
+        {
+            "ruta":"About",
+            "icon":"about",
+            "texto":"AboutDialog"
+        },
+        {
+            "ruta":"Hero",
+            "icon":"hero",
+            "texto":"Hero Example"
         }
     ]
 }
