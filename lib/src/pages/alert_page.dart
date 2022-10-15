@@ -59,7 +59,7 @@ class AlertPage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('CANCELAR'),
+            child: const Text('CANCELAR'),
             ),
           ],
         );

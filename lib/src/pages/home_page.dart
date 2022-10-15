@@ -2,6 +2,7 @@ import 'package:componentes/src/pages/Account.dart';
 import 'package:componentes/src/pages/person_page.dart';
 import 'package:componentes/src/pages/setting_page.dart';
 import 'package:componentes/src/provider/menu_provider.dart';
+import 'package:componentes/src/settings/widgets/menu_widget.dart';
 import 'package:componentes/src/utils/icono_strings.dart';
 import 'package:flutter/material.dart';
 
@@ -20,19 +21,26 @@ class _HomePageState extends State<HomePage> {
     AccountPage(),
     PersonPage(),
   ];
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: crearMenu(context),
         appBar: AppBar(
-          title: const Text('Componentes Todos'),
+          title: const Text(
+            'Componentes Todos',
+            style: TextStyle(
+              fontSize: 15,
+            ),
+          ),
           backgroundColor: Colors.deepPurple[300],
           elevation: 0, // no da sombra debajo del App bar
-          leading: IconButton(
-            // va delante del tittle del appbar
-            onPressed: () {},
-            icon: const Icon(Icons.menu),
-          ),
+          // leading: IconButton(
+          //   // va delante del tittle del appbar
+          //   onPressed: () {},
+          //   icon: const Icon(Icons.menu),
+          // ),
           actions: [
             // aca puedes poner botones al mismo nivel que el title.
             IconButton(
@@ -107,8 +115,7 @@ class _HomePageState extends State<HomePage> {
       return [];
     } // al recibir un List<dynamic>? data que podrias ser null me obliga a verificarlo.
 
-    data.forEach((
-      element) {
+    data.forEach((element) {
       final Widget temp = ListTile(
         title: Text(element['texto']),
         leading: getIcon(element[

@@ -12,6 +12,7 @@ import 'package:componentes/src/pages/list_view_pages/other_listview_page.dart';
 import 'package:componentes/src/pages/listiew_page.dart';
 import 'package:componentes/src/pages/persona_list.dart';
 import 'package:componentes/src/pages/slider_page.dart';
+import 'package:componentes/src/settings/sreens/setting_page2.dart';
 import 'package:flutter/material.dart';
 
 Map<String, WidgetBuilder> getApplicatonRoutes() => _myOwnRoutes;
@@ -35,7 +36,7 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   "container": (context) => const ContainedPage(),
   "About": (context) => const AboutDialogPage(),
   "Hero": (context) => const HeroExample(),
-
+  'SettingPage2': (context) => const SettingPage2(),
 
   // si se deseara llamar desde una page a otra con pasar al metodo Navigator.pushNamed(context, String)
   // el string seria avatar 0 alert o / para ir al principal, normalmente un botton de regreso es lo que se usa
