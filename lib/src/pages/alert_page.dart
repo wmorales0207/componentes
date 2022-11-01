@@ -6,27 +6,28 @@ class AlertPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Alert page'),
-        ),
-        body: Center(
-          child: ElevatedButton(
-            onPressed: () {
-              () => _mostrarAlerta(context);
-            },
-            child: Text('Mostrar Alerta'),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.blueGrey,
-              shape: StadiumBorder(),
-            ),
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
+      appBar: AppBar(
+        title: const Text('Alert page'),
+      ),
+      body: Center(
+        child: ElevatedButton(
           onPressed: () {
-            Navigator.pop(context);
+            () => _mostrarAlerta(context);
           },
-          child: const Icon(Icons.handshake),
-        ));
+          style: ElevatedButton.styleFrom(
+            primary: Colors.blueGrey,
+            shape: const StadiumBorder(),
+          ),
+          child: const Text('Mostrar Alerta'),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: const Icon(Icons.handshake),
+      ),
+    );
   }
 
   void _mostrarAlerta(BuildContext context) {
@@ -35,10 +36,10 @@ class AlertPage extends StatelessWidget {
       barrierDismissible: true, // sta campo define si se cerrara con clic fuera
       // funcion encargada de crar el pop up de la alerta
       builder: (context) {
-        return AlertDialog(//definiendo los detalles de shape
-          shape:RoundedRectangleBorder(
+        return AlertDialog(
+          //definiendo los detalles de shape
+          shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0),
-
           ),
           title: const Text('Texto'),
           content: Column(
@@ -59,7 +60,7 @@ class AlertPage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-            child: const Text('CANCELAR'),
+              child: const Text('CANCELAR'),
             ),
           ],
         );

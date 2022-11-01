@@ -15,7 +15,8 @@ final _icons = <String, IconData>{
   "person_add_rounded": Icons.person_add_rounded,
   "about": Icons.album_outlined,
   "hero": Icons.hexagon_rounded,
-  
+  "Fitted Box": Icons.fit_screen_outlined,
+  "card": Icons.card_travel,
 };
 
 Icon getIcon(String nombreIcono) {

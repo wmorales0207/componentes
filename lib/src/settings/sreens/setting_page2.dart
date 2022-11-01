@@ -2,7 +2,6 @@ import 'package:componentes/src/settings/model/preferencia_usuaro.dart';
 import 'package:componentes/src/settings/widgets/menu_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingPage2 extends StatefulWidget {
   const SettingPage2({super.key});
@@ -38,6 +37,12 @@ class _SettingPage2State extends State<SettingPage2> {
     _nombre = _userPreference.nombre;
   }
 
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _textEditingController.dispose(); // se debe liberar los recursos usados
+  }
   // void cargarPreferencias() async {
   //   SharedPreferences pref =
   //       await SharedPreferences.getInstance(); // no hay await sin asyn

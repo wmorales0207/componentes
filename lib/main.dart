@@ -1,9 +1,11 @@
 import 'package:componentes/src/pages/alert_page.dart';
+import 'package:componentes/src/pages/modifyproducts/product_service.dart';
 import 'package:componentes/src/routes_page.dart';
 import 'package:componentes/src/settings/model/preferencia_usuaro.dart';
 //import 'package:flutter_localizations/flutter_localizations.dart'; // esta importacion es necesaria para trabajar con los idiomas
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 // con el sniped mateapp te crea la app completa para iniciar
 // siempre veo que inician con un StatelessWidget parece asunto de diseno
@@ -19,6 +21,19 @@ void main() async {
       .initPreference(); //  El main tiene que ser async para poder poder await aqui.
 
   runApp(MyApp());
+}
+
+////this class its created for the provider, create then on the top of the widgets tree
+class AppState extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(providers: [
+      ChangeNotifierProvider(
+        create: (_) => ProductService(),
+        child: MyApp(),
+      ),
+    ]);
+  }
 }
 
 class MyApp extends StatelessWidget {

@@ -65,6 +65,16 @@
             "ruta":"Hero",
             "icon":"hero",
             "texto":"Hero Example"
+        },
+        {
+            "ruta":"Box",
+            "icon":"Fitted Box",
+            "texto":"Fitted Box"
+        },
+        {
+            "ruta":"ModifyCard",
+            "icon":"card",
+            "texto":"Modify a Card"
         }
     ]
 }
