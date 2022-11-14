@@ -7,10 +7,38 @@
             "texto":"Alertas"
         },
         {
+            "ruta":"key",
+            "icon":"key",
+            "texto":"Some Keys"
+        },
+        {
             "ruta":"avatar",
             "icon":"Accesibility",
             "texto":"Avatar"
         },
+        {
+            "ruta":"Post",
+            "icon":"post",
+            "texto":"post Method"
+        },
+        {
+            "ruta":"Get",
+            "icon":"Get",
+            "texto":"Get Method"
+        },
+
+        {
+            "ruta":"Put",
+            "icon":"Put",
+            "texto":"Put Method"
+        },
+
+        {
+            "ruta":"Del",
+            "icon":"Del",
+            "texto":"Del Method"
+        },
+
         {
             "ruta":"card",
             "icon":"folder_open",
@@ -75,6 +103,21 @@
             "ruta":"ModifyCard",
             "icon":"card",
             "texto":"Modify a Card"
+        },
+        {
+            "ruta":"textfield",
+            "icon":"Change",
+            "texto":"Handle changes to a text field"
+        },
+        {
+            "ruta":"futureBuilder",
+            "icon":"futureBuilder",
+            "texto":"future  Builder"
+        },
+        {
+            "ruta":"form",
+            "icon":"form",
+            "texto":"form  Builder"
         }
     ]
 }

@@ -6,6 +6,7 @@ import 'package:componentes/src/pages/avatar_page.dart';
 import 'package:componentes/src/pages/fit_box.dart';
 import 'package:componentes/src/pages/card_pages.dart';
 import 'package:componentes/src/pages/contained_page.dart';
+import 'package:componentes/src/pages/future_builder_page.dart';
 import 'package:componentes/src/pages/hero_example.dart';
 import 'package:componentes/src/pages/home_page.dart';
 import 'package:componentes/src/pages/inpue_page.dart';
@@ -14,6 +15,8 @@ import 'package:componentes/src/pages/listiew_page.dart';
 import 'package:componentes/src/pages/modifyproducts/modify_card.dart';
 import 'package:componentes/src/pages/persona_list.dart';
 import 'package:componentes/src/pages/slider_page.dart';
+import 'package:componentes/src/pages/text_editing_controller_page.dart';
+import 'package:componentes/src/pages/using_keys_page.dart';
 import 'package:componentes/src/settings/sreens/setting_page2.dart';
 import 'package:flutter/material.dart';
 
@@ -40,9 +43,10 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   "Hero": (context) => const HeroExample(),
   'SettingPage2': (context) => const SettingPage2(),
   'Box': (context) => const BoxContain(),
-  'ModifyCard': (context) =>  ModifyCardPage(),
-
-
+  'ModifyCard': (context) => ModifyCardPage(),
+  'textfield': (context) => TextEditingControllerPage(),
+  'futureBuilder': (context) => MyStatefulWidget(),
+  PositionedTile.route: (context) => PositionedTile(),
 
   // si se deseara llamar desde una page a otra con pasar al metodo Navigator.pushNamed(context, String)
   // el string seria avatar 0 alert o / para ir al principal, normalmente un botton de regreso es lo que se usa

@@ -74,7 +74,7 @@ class BoxContain extends StatelessWidget {
                   child: const FittedBox(
                     // este logra ajustar el contenido de su hijo segun la opcion de BixFit que se haya elegido
                     fit: BoxFit
-                        .contain, // esta ajusta el contenido al tamaño del container
+                        .cover, // esta ajusta el contenido al tamaño del container
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal:

@@ -86,6 +86,8 @@ class HomeBody extends StatelessWidget {
                   border: Border.all(color: Colors.black12),
                 ),
                 child: ListView.builder(
+                    physics:
+                        BouncingScrollPhysics(), // look the same in android or ios
                     itemBuilder: (_, i) => ListTile(
                           title: Text('${i + 1}'),
                         )),
