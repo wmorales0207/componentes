@@ -25,6 +25,7 @@ final _icons = <String, IconData>{
   "Put": Icons.get_app_rounded,
   "Del": Icons.get_app_rounded,
   "key": Icons.key_off_rounded,
+  'TaskGroups': Icons.task,
   
 };
 

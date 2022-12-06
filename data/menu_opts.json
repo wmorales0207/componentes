@@ -12,6 +12,11 @@
             "texto":"Some Keys"
         },
         {
+            "ruta":"GroupsScreen",
+            "icon":"TaskGroups",
+            "texto":"Task and Groups"
+        },
+        {
             "ruta":"avatar",
             "icon":"Accesibility",
             "texto":"Avatar"

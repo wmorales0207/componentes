@@ -3,6 +3,7 @@ import 'package:componentes/src/pages/absob_Pointer.dart';
 import 'package:componentes/src/pages/alert_page.dart';
 import 'package:componentes/src/pages/animated_container.dart';
 import 'package:componentes/src/pages/avatar_page.dart';
+import 'package:componentes/src/pages/dinamic_tasks/groups_screen.dart';
 import 'package:componentes/src/pages/fit_box.dart';
 import 'package:componentes/src/pages/card_pages.dart';
 import 'package:componentes/src/pages/contained_page.dart';
@@ -48,8 +49,8 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   'textfield': (context) => TextEditingControllerPage(),
   'futureBuilder': (context) => MyStatefulWidget(),
   PositionedTile.route: (context) => const PositionedTile(),
-  ReordenableList.route : (_)=>const  ReordenableList(),
-  
+  ReordenableList.route: (_) => const ReordenableList(),
+  GroupsScreen.route: (_) => const GroupsScreen(),
 
   // si se deseara llamar desde una page a otra con pasar al metodo Navigator.pushNamed(context, String)
   // el string seria avatar 0 alert o / para ir al principal, normalmente un botton de regreso es lo que se usa
