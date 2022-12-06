@@ -85,6 +85,11 @@
             "texto":"PersonList2"
         },
         {
+            "ruta":"ReordenableList",
+            "icon":"ReordenableList",
+            "texto":"Reordenable List"
+        },
+        {
             "ruta":"About",
             "icon":"about",
             "texto":"AboutDialog"
