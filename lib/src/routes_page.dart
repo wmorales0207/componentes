@@ -7,6 +7,7 @@ import 'package:componentes/src/pages/dinamic_tasks/groups_screen.dart';
 import 'package:componentes/src/pages/fit_box.dart';
 import 'package:componentes/src/pages/card_pages.dart';
 import 'package:componentes/src/pages/contained_page.dart';
+import 'package:componentes/src/pages/future_builder_Good_Practice.dart';
 import 'package:componentes/src/pages/future_builder_page.dart';
 import 'package:componentes/src/pages/hero_example.dart';
 import 'package:componentes/src/pages/home_page.dart';
@@ -51,6 +52,7 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   PositionedTile.route: (context) => const PositionedTile(),
   ReordenableList.route: (_) => const ReordenableList(),
   GroupsScreen.route: (_) => const GroupsScreen(),
+  FutureBuilderGP.route: (_) => const FutureBuilderGP(),
 
   // si se deseara llamar desde una page a otra con pasar al metodo Navigator.pushNamed(context, String)
   // el string seria avatar 0 alert o / para ir al principal, normalmente un botton de regreso es lo que se usa

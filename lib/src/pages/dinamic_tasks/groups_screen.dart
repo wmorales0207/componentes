@@ -1,5 +1,7 @@
+import 'package:componentes/objectbox.g.dart';
 import 'package:componentes/src/pages/dinamic_tasks/add_group_screen.dart';
 import 'package:componentes/src/pages/dinamic_tasks/groups.dart';
+import 'package:componentes/src/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class GroupsScreen extends StatefulWidget {
@@ -14,13 +16,46 @@ class _GroupsScreenState extends State<GroupsScreen> {
   Future<void> addGroup() async {
     final result = await showDialog(
       context: context,
-      builder: (_) => const AddGroupScreen(),
+      builder: (_) => AddGroupScreen(),
     );
     if (result != null) // if el user cemes withaou any changes
-    {}
+    {
+      groupBox.put(result);
+      loadGroups();
+    }
+  }
+
+  late final Store store;
+  late final Box<Groups> groupBox;
+
+  void loadGroups() {
+    _groups.clear();
+    setState(() {
+      // para que refresque los widgets
+      _groups.addAll(groupBox.getAll());
+    });
+  }
+
+  Future<void> loadStore() async {
+    try {
+      store = await openStore(); // se abre la coexion a al BD
+      groupBox = store
+          .box<Groups>(); // los box se usan para interactuar con las entidades,
+      // acala variable realiza operaiones sobre los Groups
+      loadGroups();
+    } catch (ex) {
+      showSnackBar(context, ex.toString());
+    }
   }
 
   final _groups = <Groups>[];
+
+  @override
+  void initState() {
+    super.initState();
+    loadStore(); // abre la bd
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,14 +85,28 @@ class _GroupsScreenState extends State<GroupsScreen> {
       floatingActionButton: FloatingActionButton.extended(
         label: const Text('Add Group'),
         onPressed: () async {
-          Groups result = await showDialog(
+          var result = await showDialog(
             context: context,
-            builder: (_) => const AddGroupScreen(),
+            builder: (_) => AddGroupScreen(),
           );
-          print('results is: ${result.name}');
-          if (result != null) // if el user cemes withaou any changes
-          {
-            
+
+          try {
+            if (result != null &&
+                result is Groups) // if el user cemes withaou any changes
+
+            {
+              final res = groupBox.put(result); //anado a la bd
+              // print(res.isOdd);
+              //loadGroups();
+              _groups.clear(); // clean the old data
+              setState(() {
+                // para que refresque los widgets
+                _groups.addAll(groupBox
+                    .getAll()); // update the data and the set state update the widget
+              });
+            }
+          } catch (ex) {
+            showSnackBar(context, ex.toString());
           }
         },
       ),
@@ -74,13 +123,13 @@ class _GroupItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final description = group.taskDescription();
     return Padding(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: InkWell(
         onTap: onTap,
         child: Container(
           decoration: BoxDecoration(
             color: Color(group.color),
-            borderRadius: BorderRadius.all(
+            borderRadius: const BorderRadius.all(
               Radius.circular(15),
             ),
           ),

@@ -2,15 +2,17 @@ import 'package:componentes/src/pages/dinamic_tasks/groups.dart';
 import 'package:flutter/material.dart';
 
 class AddGroupScreen extends StatefulWidget {
-  const AddGroupScreen({super.key});
+   AddGroupScreen({super.key});
 
   @override
   State<AddGroupScreen> createState() => _AddGroupScreenState();
 }
 
 class _AddGroupScreenState extends State<AddGroupScreen> {
+  
   Color selectedColor = Colors.primaries.first;
   final textEditingController = TextEditingController();
+  
 
   void onsave() {
     final name = textEditingController.text;
@@ -30,6 +32,10 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
   }
 
   String? errormesage;
+
+  
+
+  
 
   @override
   Widget build(BuildContext context) {
