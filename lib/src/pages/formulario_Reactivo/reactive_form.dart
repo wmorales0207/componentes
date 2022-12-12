@@ -119,14 +119,27 @@ Asynchronous Validators are very similar to their synchronous counterparts, with
 
 ////////////////////////////////
   ///
+
   final _form = FormGroup({
-    'nickname': FormControl<String>(),
-    'email': FormControl<String>(value: "JonhDoe@gail.com", validators: [
-      Validators.required,
-      Validators.email, // by default this kind of validators exists
-    ]),
-    'comment': FormControl<String>(value: 'add a value'),
-    'termsAccepted': FormControl<bool>(),
+    'nickname': FormControl<String>(
+      validators: [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.pattern(r'^([^\x00-\x7F]|[\w_\.\-]){3,16}$'),
+      ],
+    ),
+    'email': FormControl<String>(
+      validators: [
+        Validators.required,
+        Validators.email,
+      ],
+    ),
+    'comment': FormControl<String>(),
+    'radio': FormControl<bool>(
+      validators: [
+        Validators.requiredTrue,
+      ],
+    ),
   });
 
   @override
@@ -152,9 +165,13 @@ Asynchronous Validators are very similar to their synchronous counterparts, with
                     label: Text('Nickname'),
                     prefixIcon: Icon(Icons.person),
                   ),
-                ),
-                const SizedBox(
-                  height: 4,
+                  validationMessages: {
+                    ValidationMessage.required: (error) => error.toString(),
+                    ValidationMessage.minLength: (error) =>
+                        'Field must be at least 3 characters long',
+                    ValidationMessage.pattern: (error) => 'invalid characters',
+                  },
+                  maxLength: 16,
                 ),
                 ReactiveTextField<String>(
                   key: const Key('email'),
@@ -163,6 +180,12 @@ Asynchronous Validators are very similar to their synchronous counterparts, with
                     label: Text('Email'),
                     prefixIcon: Icon(Icons.email),
                   ),
+                  validationMessages: {
+                    ValidationMessage.required: (error) =>
+                        'Please enter some text',
+                    ValidationMessage.email: (error) =>
+                        'Incorrect pattern: invalid email',
+                  },
                 ),
                 const SizedBox(
                   height: 4,
@@ -181,8 +204,8 @@ Asynchronous Validators are very similar to their synchronous counterparts, with
                   height: 4,
                 ),
                 ReactiveCheckboxListTile(
-                  key: const Key('termsAccepted'),
-                  formControlName: 'termsAccepted',
+                  key: const Key('radio'),
+                  formControlName: 'radio',
                   title: const Text('Accept terms and conditions'),
                 ),
                 const SizedBox(
@@ -191,7 +214,16 @@ Asynchronous Validators are very similar to their synchronous counterparts, with
                 ReactiveFormConsumer(
                   key: const Key('submit'),
                   builder: (context, form, _) => ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      if (form.valid) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(' nik: ${form.value} '),
+                            backgroundColor: Colors.greenAccent,
+                          ),
+                        );
+                      }
+                    },
                     child: const Text('Submit'),
                   ),
                 ),

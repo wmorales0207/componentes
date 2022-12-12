@@ -10,6 +10,10 @@ class FlutterFormExample extends StatefulWidget {
 class _FlutterFormExampleState extends State<FlutterFormExample> {
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
+  final _nickname = TextEditingController();
+  final _email = TextEditingController();
+  final _comment = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -29,6 +33,7 @@ class _FlutterFormExampleState extends State<FlutterFormExample> {
             child: Column(
               children: <Widget>[
                 TextFormField(
+                  controller: _nickname,
                   key: const Key("nickname"),
                   decoration: const InputDecoration(
                     label: Text('Nickname'),
@@ -52,6 +57,7 @@ class _FlutterFormExampleState extends State<FlutterFormExample> {
                 ),
                 TextFormField(
                   key: const Key("email"),
+                  controller: _email,
                   decoration: const InputDecoration(
                     label: Text('Email'),
                     prefixIcon: Icon(Icons.email),
@@ -70,6 +76,7 @@ class _FlutterFormExampleState extends State<FlutterFormExample> {
                 ),
                 TextFormField(
                   key: const Key("comment"),
+                  controller: _comment,
                   decoration: const InputDecoration(
                     label: Text('Comment'),
                     prefixIcon: Icon(Icons.textsms),
@@ -100,8 +107,9 @@ class _FlutterFormExampleState extends State<FlutterFormExample> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Processing Data'),
+                        SnackBar(
+                          content: Text(
+                              ' nik: ${_nickname.text} , email: ${_email.text}, comment: ${_comment.text}'),
                           backgroundColor: Colors.greenAccent,
                         ),
                       );
