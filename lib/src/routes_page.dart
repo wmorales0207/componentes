@@ -7,6 +7,7 @@ import 'package:componentes/src/pages/dinamic_tasks/groups_screen.dart';
 import 'package:componentes/src/pages/fit_box.dart';
 import 'package:componentes/src/pages/card_pages.dart';
 import 'package:componentes/src/pages/contained_page.dart';
+import 'package:componentes/src/pages/formulario_Reactivo/initial_form.dart';
 import 'package:componentes/src/pages/future_builder_Good_Practice.dart';
 import 'package:componentes/src/pages/future_builder_page.dart';
 import 'package:componentes/src/pages/hero_example.dart';
@@ -15,10 +16,12 @@ import 'package:componentes/src/pages/inpue_page.dart';
 import 'package:componentes/src/pages/list_view_pages/other_listview_page.dart';
 import 'package:componentes/src/pages/listiew_page.dart';
 import 'package:componentes/src/pages/modifyproducts/modify_card.dart';
+import 'package:componentes/src/pages/nuemorphicbutton.dart';
 import 'package:componentes/src/pages/persona_list.dart';
 import 'package:componentes/src/pages/reordenable_list.dart';
 import 'package:componentes/src/pages/slider_page.dart';
 import 'package:componentes/src/pages/text_editing_controller_page.dart';
+import 'package:componentes/src/pages/url_launcher.dart';
 import 'package:componentes/src/pages/using_keys_page.dart';
 import 'package:componentes/src/settings/sreens/setting_page2.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +56,9 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   ReordenableList.route: (_) => const ReordenableList(),
   GroupsScreen.route: (_) => const GroupsScreen(),
   FutureBuilderGP.route: (_) => const FutureBuilderGP(),
+  NeumorphicButton.route: (_) => NeumorphicButton(),
+  UrlLauncherPage.route: (context) => const UrlLauncherPage(),
+  'ReactiveForm': (context) => const ShowFormsReactiveExample(),
 
   // si se deseara llamar desde una page a otra con pasar al metodo Navigator.pushNamed(context, String)
   // el string seria avatar 0 alert o / para ir al principal, normalmente un botton de regreso es lo que se usa

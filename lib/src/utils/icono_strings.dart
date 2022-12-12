@@ -9,7 +9,7 @@ final _icons = <String, IconData>{
   "donut_large": Icons.donut_large,
   "input": Icons.input,
   "tune": Icons.tune,
-  "list": Icons.list, 
+  "list": Icons.list,
   "point_of_sale": Icons.point_of_sale,
   "add_box_rounded": Icons.add_box_rounded,
   "person_add_rounded": Icons.person_add_rounded,
@@ -27,9 +27,8 @@ final _icons = <String, IconData>{
   "key": Icons.key_off_rounded,
   'TaskGroups': Icons.task,
   'FutureBuilder': Icons.flutter_dash_outlined,
-
-  
-  
+  'NeumorphicButton': Icons.near_me_outlined,
+  'ReactiveForm': Icons.add_reaction,
 };
 
 Icon getIcon(String nombreIcono) {

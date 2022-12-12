@@ -21,6 +21,24 @@
             "icon":"TaskGroups",
             "texto":"Task and Groups"
         },
+
+        {
+            "ruta":"NeumorphicButton",
+            "icon":"NeumorphicButton",
+            "texto":"Neumorphic Button"
+        },
+        {
+            "ruta":"ReactiveForm",
+            "icon":"ReactiveForm",
+            "texto":"Reactive Form"
+        },
+
+        {
+            "ruta":"UrlLauncherPage",
+            "icon":"UrlLauncherPage",
+            "texto":"Url Launcher"
+        },
+
         {
             "ruta":"avatar",
             "icon":"Accesibility",
