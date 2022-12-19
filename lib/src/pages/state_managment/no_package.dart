@@ -1,10 +1,14 @@
+import 'package:componentes/src/pages/state_managment/counter_inhereted.dart';
+import 'package:componentes/src/pages/state_managment/counter_repository.dart';
+import 'package:componentes/src/pages/state_managment/main_non_block.dart';
 import 'package:flutter/material.dart';
 
 import 'dialog_utils.dart';
 
 class NoPackgePage extends StatelessWidget {
   static const route = 'NoPackgePage';
-  const NoPackgePage({super.key});
+  NoPackgePage({super.key});
+  final service = CounterService();
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +16,14 @@ class NoPackgePage extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: NoPackage(),
+      // a este nivel se sera el inherited se le pone de child la clase No package y se le le a;ade la dependencia
+      // que en este caso es la info que se desea mover, o sea la clase que hereda de Change Notifier.
+      home: CounterInhereted(
+        bloc: MainNonBlock(service),
+        child: NoPackage(
+          title: 'No pa',
+        ),
+      ),
     );
   }
 }
@@ -20,18 +31,48 @@ class NoPackgePage extends StatelessWidget {
 class NoPackage extends StatefulWidget {
   NoPackage({super.key, this.title});
   final String? title;
+// service se injecta desde la clase superior del arbol y se ijecta la dependencia pero a traves de la interfaz creada.
+  //final CounterRepository service;
 
   @override
   State<NoPackage> createState() => _NoPackageState();
 }
 
 class _NoPackageState extends State<NoPackage> {
-  int _counter = 0;
+  // el objeto bloc necesita ser inicializado peo no deja coger a  widget.service aca , por lo que hay que hacerlo en el INITS.
+  // el uso de los inherited permite que no haya que pasar los objetos por todo el arbol hasta llegara a dondes e necesita
+
+  late MainNonBlock bloc;
+
+// para a;adir esta logica a la ejecusion una de as vias es hacer que el bloc escuche o se actualice con
+// cu
+  void listenCounter() {
+    if (bloc.counter > 0 && bloc.counter % 5 == 0) {
+      showHelloDialog(context, 'none');
+    }
+  }
+
+  @override
+  void initState() {
+    // este metodo bsca la instancia del inherited y la instancia y con eso el objeto Bloc ...
+    bloc = CounterInhereted.of(context);
+    // de esta manera hacemos qu el metodo listen counter escuche las modificaciones que se realizan
+    // en este caso mostraria un msg cuando llegue a un multiplo de 5. ya que ademas no se puede mostrar un
+    // dialog dentro del Build.
+    bloc.addListener(listenCounter);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    bloc.removeListener(listenCounter);
+    super.dispose();
+  }
+
   void incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-    if (_counter > 0 && _counter % 5 == 0) {
+    bloc.increment();
+    //la varcounter del service contiene el valor incrementado
+    if (bloc.counter > 0 && bloc.counter % 5 == 0) {
       showHelloDialog(context, 'none');
       // showDialog(
       //   context: context,
@@ -54,37 +95,14 @@ class _NoPackageState extends State<NoPackage> {
         ),
         body: Column(
           children: [
-            _CounterBody(
-              counter: _counter,
-            ),
-            Text(
-              _counter.toString(),
-              style: _counter.isEven
-                  ? TextStyle(color: Colors.red)
-                  : TextStyle(color: Colors.purple.shade400),
-            ),
+            _CounterBody(counter: bloc.counter),
+            Text(bloc.counter.toString(),
+                style: bloc.counter.isEven
+                    ? TextStyle(color: Colors.red)
+                    : TextStyle(color: Colors.purple.shade400)),
           ],
         ),
-        floatingActionButton: CounterButton(
-          onPressed: incrementCounter,
-        ));
-  }
-}
-
-class CounterButton extends StatelessWidget {
-  const CounterButton({
-    Key? key,
-    required this.onPressed,
-  }) : super(key: key);
-  final VoidCallback onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton(
-      onPressed: onPressed,
-      tooltip: 'increment',
-      child: const Icon(Icons.add),
-    );
+        floatingActionButton: CounterButton());
   }
 }
 
@@ -118,9 +136,35 @@ class CounterText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      '$counter ',
-      style: Theme.of(context).textTheme.headline4,
+    final bloc = CounterInhereted.of(context);
+    // este componente hace la funcion de escuchar , pues en el animation se le pasa un objecto que que herede de chage notifier o
+    return AnimatedBuilder(
+      animation: bloc,
+      builder: (BuildContext context, _) {
+        return Text(
+          '${bloc.counter}',
+          style: Theme.of(context).textTheme.headline4,
+        );
+      },
+    );
+  }
+}
+
+class CounterButton extends StatelessWidget {
+  const CounterButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final bloc = CounterInhereted.of(context);
+
+    return FloatingActionButton(
+      onPressed: () async {
+        await bloc.increment();
+      },
+      tooltip: 'increment',
+      child: const Icon(Icons.add),
     );
   }
 }

@@ -23,6 +23,7 @@ import 'package:componentes/src/pages/nuemorphicbutton.dart';
 import 'package:componentes/src/pages/persona_list.dart';
 import 'package:componentes/src/pages/reordenable_list.dart';
 import 'package:componentes/src/pages/slider_page.dart';
+import 'package:componentes/src/pages/state_managment/init_managment_state.dart';
 import 'package:componentes/src/pages/text_editing_controller_page.dart';
 import 'package:componentes/src/pages/url_launcher.dart';
 import 'package:componentes/src/pages/using_keys_page.dart';
@@ -65,6 +66,7 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   'FontAwesomeIcons': (context) => const FontAwesomeIconsPage(),
   LoginPage.route: (_) => LoginPage(),
   AspectRatioAlignPage.route: (_) => const AspectRatioAlignPage(),
+  InitManagmentPage.route: (context) => InitManagmentPage(),
 
   // si se deseara llamar desde una page a otra con pasar al metodo Navigator.pushNamed(context, String)
   // el string seria avatar 0 alert o / para ir al principal, normalmente un botton de regreso es lo que se usa
