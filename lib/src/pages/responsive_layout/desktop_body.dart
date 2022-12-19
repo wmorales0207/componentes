@@ -21,6 +21,14 @@ class DesktopBody extends StatelessWidget {
               ),
             ),
           ),
+          
+          RawMaterialButton(onPressed: () {
+            
+          },
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20),
+          ),
+          child: const Icon(Icons.star),
+          ),
           Expanded(
             child: ListView.builder(
               itemCount: 8, // create a list view with 8 items

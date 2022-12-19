@@ -1,12 +1,15 @@
+import 'package:componentes/src/pages/OuthPages/login_page.dart';
 import 'package:componentes/src/pages/about_dialog_page.dart';
 import 'package:componentes/src/pages/absob_Pointer.dart';
 import 'package:componentes/src/pages/alert_page.dart';
 import 'package:componentes/src/pages/animated_container.dart';
+import 'package:componentes/src/pages/aspect_ratio_align.dart';
 import 'package:componentes/src/pages/avatar_page.dart';
 import 'package:componentes/src/pages/dinamic_tasks/groups_screen.dart';
 import 'package:componentes/src/pages/fit_box.dart';
 import 'package:componentes/src/pages/card_pages.dart';
 import 'package:componentes/src/pages/contained_page.dart';
+import 'package:componentes/src/pages/fontAwesomeicons/fontawesomeicons_page.dart';
 import 'package:componentes/src/pages/formulario_Reactivo/initial_form.dart';
 import 'package:componentes/src/pages/future_builder_Good_Practice.dart';
 import 'package:componentes/src/pages/future_builder_page.dart';
@@ -59,6 +62,9 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   NeumorphicButton.route: (_) => NeumorphicButton(),
   UrlLauncherPage.route: (context) => const UrlLauncherPage(),
   'ReactiveForm': (context) => const ShowFormsReactiveExample(),
+  'FontAwesomeIcons': (context) => const FontAwesomeIconsPage(),
+  LoginPage.route: (_) => LoginPage(),
+  AspectRatioAlignPage.route: (_) => const AspectRatioAlignPage(),
 
   // si se deseara llamar desde una page a otra con pasar al metodo Navigator.pushNamed(context, String)
   // el string seria avatar 0 alert o / para ir al principal, normalmente un botton de regreso es lo que se usa

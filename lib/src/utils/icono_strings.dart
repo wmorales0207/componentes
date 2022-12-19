@@ -1,3 +1,4 @@
+import 'package:componentes/src/pages/OuthPages/login_page.dart';
 import 'package:flutter/material.dart';
 
 // aca en este . dart se creo un map que machea el nombre de un icono con el componente
@@ -29,6 +30,10 @@ final _icons = <String, IconData>{
   'FutureBuilder': Icons.flutter_dash_outlined,
   'NeumorphicButton': Icons.near_me_outlined,
   'ReactiveForm': Icons.add_reaction,
+  'FontAwesomeIcons': Icons.font_download,
+  'OuthFirebase': Icons.fire_extinguisher,
+  
+  
 };
 
 Icon getIcon(String nombreIcono) {

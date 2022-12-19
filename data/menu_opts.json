@@ -17,9 +17,38 @@
             "texto":"Future Builder"
         },
         {
+            "ruta":"stateManagment",
+            "icon":"stateManagment",
+            "texto":"state Managment: No Package, Provder, GetIt"
+        },
+        
+        {
+            "ruta":"OuthFirebase",
+            "icon":"OuthFirebase",
+            "texto":"Outh Firebase"
+        },
+
+        {
+            "ruta":"aspectRatioalign",
+            "icon":"AspectRatio-Align",
+            "texto":"AspectRatio  Align"
+        },
+        
+           
+        {
+            "ruta":"ReactiveWay",
+            "icon":"ReactiveWay",
+            "texto":"Reactive Way"
+        },
+        {
             "ruta":"GroupsScreen",
             "icon":"TaskGroups",
             "texto":"Task and Groups"
+        },
+        {
+            "ruta":"FontAwesomeIcons",
+            "icon":"FontAwesomeIcons",
+            "texto":"FontAwesome Icons"
         },
 
         {

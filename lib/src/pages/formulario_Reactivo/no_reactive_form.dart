@@ -58,9 +58,11 @@ class _FlutterFormExampleState extends State<FlutterFormExample> {
                 TextFormField(
                   key: const Key("email"),
                   controller: _email,
+                  
                   decoration: const InputDecoration(
                     label: Text('Email'),
                     prefixIcon: Icon(Icons.email),
+                    
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
