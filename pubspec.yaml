@@ -35,6 +35,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   font_awesome_flutter: ^10.3.0
+  google_fonts: ^3.0.1
   http: ^0.13.5
   intl: ^0.17.0
   objectbox: ^1.6.2

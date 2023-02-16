@@ -95,11 +95,8 @@ class _NoPackageState extends State<NoPackage> {
         ),
         body: Column(
           children: [
+            
             _CounterBody(counter: bloc.counter),
-            Text(bloc.counter.toString(),
-                style: bloc.counter.isEven
-                    ? TextStyle(color: Colors.red)
-                    : TextStyle(color: Colors.purple.shade400)),
           ],
         ),
         floatingActionButton: CounterButton());
@@ -115,13 +112,12 @@ class _CounterBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: <Widget>[
-          const Text('You have Pushed the button too many times'),
-          CounterText(counter: counter),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        const Text('You have Pushed the button too many times'),
+        CounterText(counter: counter),
+      ],
     );
   }
 }
@@ -138,14 +134,16 @@ class CounterText extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = CounterInhereted.of(context);
     // este componente hace la funcion de escuchar , pues en el animation se le pasa un objecto que que herede de chage notifier o
-    return AnimatedBuilder(
-      animation: bloc,
-      builder: (BuildContext context, _) {
-        return Text(
-          '${bloc.counter}',
-          style: Theme.of(context).textTheme.headline4,
-        );
-      },
+    return Center(
+      child: AnimatedBuilder(
+        animation: bloc,
+        builder: (BuildContext context, _) {
+          return Text(
+            '${bloc.counter}',
+            style: Theme.of(context).textTheme.headline4,
+          );
+        },
+      ),
     );
   }
 }
