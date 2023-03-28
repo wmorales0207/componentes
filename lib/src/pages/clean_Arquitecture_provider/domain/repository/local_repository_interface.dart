@@ -4,8 +4,8 @@ abstract class LocalRepositoryInterface {
   Future<String> getToken();
   Future<String> saveToken(String token);
   Future<void> clearAllData();
-  Future<User> getUser();
-  Future<User> saveUser(User user);
+  //Future<User> getUser();
+  //Future<User> saveUser(User user);
   Future<void> saveDarkMode(bool darkmode);
   Future<bool> isDarkMode();
 }
@@ -31,13 +31,13 @@ class LocalRepositoryInterfaceImpl extends LocalRepositoryInterface {
     return pref.getString(_pref_token) ?? 'nodata';
   }
 
-  @override
-  Future<User> getUser() async {
-    // TODO: implement getUser
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    final username = pref.getString(_pref_username) ?? 'no name';
-    throw UnimplementedError();
-  }
+  // @override
+  // Future<User> getUser() async {
+  //   // TODO: implement getUser
+  //   SharedPreferences pref = await SharedPreferences.getInstance();
+  //   final username = pref.getString(_pref_username) ?? 'no name';
+  //   throw UnimplementedError();
+  // }
 
   @override
   Future<bool> isDarkMode() {

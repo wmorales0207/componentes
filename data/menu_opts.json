@@ -11,6 +11,17 @@
             "icon":"key",
             "texto":"Some Keys"
         },
+
+        {
+            "ruta":"Fruits",
+            "icon":"Fruits",
+            "texto":"Fruits Shop"
+        },
+        {
+            "ruta":"cacheNetworkImage",
+            "icon":"cacheNetworkImage",
+            "texto":"cacheNetworkImage"
+        },
         {
             "ruta":"FutureBuilder",
             "icon":"FutureBuilder",

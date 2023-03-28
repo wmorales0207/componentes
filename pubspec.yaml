@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  cached_network_image: ^3.2.0
   cupertino_icons: ^1.0.2
   file_picker: ^4.5.1
   flutter:
@@ -43,6 +44,7 @@ dependencies:
   provider: ^6.0.4
   reactive_forms: ^14.1.0
   shared_preferences: ^2.0.15
+  slide_to_act: ^2.0.1
   url_launcher: ^6.1.7
 
 dev_dependencies:

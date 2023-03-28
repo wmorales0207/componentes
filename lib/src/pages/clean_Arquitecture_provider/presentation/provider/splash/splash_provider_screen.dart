@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class SplashScreen extends StatelessWidget {
   //aqui se crea un construnctor privado que impide que esta clase si instancie

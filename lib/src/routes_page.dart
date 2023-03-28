@@ -1,3 +1,4 @@
+import 'package:componentes/src/pages/CacheNetworkImage/CacheNetworkImagePage.dart';
 import 'package:componentes/src/pages/OuthPages/login_page.dart';
 import 'package:componentes/src/pages/about_dialog_page.dart';
 import 'package:componentes/src/pages/absob_Pointer.dart';
@@ -11,6 +12,7 @@ import 'package:componentes/src/pages/card_pages.dart';
 import 'package:componentes/src/pages/contained_page.dart';
 import 'package:componentes/src/pages/fontAwesomeicons/fontawesomeicons_page.dart';
 import 'package:componentes/src/pages/formulario_Reactivo/initial_form.dart';
+import 'package:componentes/src/pages/fruit_sell_place/screens/intro_screem.dart';
 import 'package:componentes/src/pages/future_builder_Good_Practice.dart';
 import 'package:componentes/src/pages/future_builder_page.dart';
 import 'package:componentes/src/pages/hero_example.dart';
@@ -54,8 +56,8 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   'SettingPage2': (context) => const SettingPage2(),
   'Box': (context) => const BoxContain(),
   'ModifyCard': (context) => ModifyCardPage(),
-  'textfield': (context) => TextEditingControllerPage(),
-  'futureBuilder': (context) => MyStatefulWidget(),
+  'textfield': (context) => const TextEditingControllerPage(),
+  'futureBuilder': (context) => const MyStatefulWidget(),
   PositionedTile.route: (context) => const PositionedTile(),
   ReordenableList.route: (_) => const ReordenableList(),
   GroupsScreen.route: (_) => const GroupsScreen(),
@@ -66,7 +68,9 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   'FontAwesomeIcons': (context) => const FontAwesomeIconsPage(),
   LoginPage.route: (_) => LoginPage(),
   AspectRatioAlignPage.route: (_) => const AspectRatioAlignPage(),
-  InitManagmentPage.route: (context) => InitManagmentPage(),
+  InitManagmentPage.route: (context) => const InitManagmentPage(),
+  IntroScreen.route: (_) => const IntroScreen(),
+  CacheNetworkImagePage.route: (context) => const CacheNetworkImagePage(),
 
   // si se deseara llamar desde una page a otra con pasar al metodo Navigator.pushNamed(context, String)
   // el string seria avatar 0 alert o / para ir al principal, normalmente un botton de regreso es lo que se usa

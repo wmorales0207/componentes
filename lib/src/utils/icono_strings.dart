@@ -32,8 +32,8 @@ final _icons = <String, IconData>{
   'ReactiveForm': Icons.add_reaction,
   'FontAwesomeIcons': Icons.font_download,
   'OuthFirebase': Icons.fire_extinguisher,
-  
-  
+  'Fruits': Icons.local_grocery_store_outlined,
+  'cacheNetworkImage': Icons.network_check,
 };
 
 Icon getIcon(String nombreIcono) {

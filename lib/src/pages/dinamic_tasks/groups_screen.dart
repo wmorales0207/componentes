@@ -47,7 +47,7 @@ class _GroupsScreenState extends State<GroupsScreen> {
       showSnackBar(context, ex.toString());
     }
   }
-
+// variable que carga  los grupos desde la BD
   final _groups = <Groups>[];
 
   @override

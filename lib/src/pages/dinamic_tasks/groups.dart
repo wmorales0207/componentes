@@ -4,7 +4,7 @@ import 'package:objectbox/objectbox.dart';
 @Entity() // para que objectbox cree una tabla con esta clase
 class Groups {
   int id =
-      0; // tener prsente que el id debe estar inicializado, no se pueden usar campos privados, ni contrunctor vacio.
+      0; // tener presente que el id debe estar inicializado, no se pueden usar campos privados, ni contrunctor vacio.
   String name;
   int color;
 
