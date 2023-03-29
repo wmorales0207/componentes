@@ -2,28 +2,27 @@ import 'package:componentes/src/pages/dinamic_tasks/groups.dart';
 import 'package:flutter/material.dart';
 
 class AddGroupScreen extends StatefulWidget {
-   AddGroupScreen({super.key});
+  AddGroupScreen({super.key});
 
   @override
   State<AddGroupScreen> createState() => _AddGroupScreenState();
 }
 
 class _AddGroupScreenState extends State<AddGroupScreen> {
-  
   Color selectedColor = Colors.primaries.first;
+
   final textEditingController = TextEditingController();
-  
 
   void onsave() {
     final name = textEditingController.text;
     if (name.isEmpty) {
       setState(() {
-        errormesage = 'Name is requirede';
+        errorMessage = 'Name is require';
       });
       return;
     } else {
       setState(() {
-        errormesage = null;
+        errorMessage = null;
       });
     }
     final group =
@@ -31,11 +30,8 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
     Navigator.of(context).pop(group);
   }
 
-  String? errormesage;
-
-  
-
-  
+// var para identificar en pantalla si el user no entro el nombre del grupo.
+  String? errorMessage;
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +45,7 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            // paint the Selected Color and enter Group Name
             SizedBox(
               child: Container(
                 color: selectedColor,
@@ -56,7 +53,7 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.group, size: 60),
+                    const Icon(Icons.group, size: 40),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: TextField(
@@ -64,10 +61,10 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 28,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w600,
                         ),
                         decoration: const InputDecoration(
-                          hintText: 'group',
+                          hintText: 'Group name',
                         ),
                       ),
                     ),
@@ -75,6 +72,9 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
                 ),
               ),
             ),
+
+            // Color Selection... and underlined
+
             Expanded(
               child: Container(
                 color: Colors.white,
@@ -88,7 +88,7 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(
-                          errormesage ?? '',
+                          errorMessage ?? '',
                           style: const TextStyle(color: Colors.red),
                         ),
                       ),
@@ -98,8 +98,16 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
                         horizontal: 20,
                         vertical: 15,
                       ),
-                      child: Text('SelectColor'),
+                      child: Text(
+                        'SelectColor',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
                     ),
+                    // con estos Expanded se logra el mismo efecto que un singleChildScrollView
                     Expanded(
                       child: GridView.builder(
                         scrollDirection: Axis.horizontal,
@@ -112,6 +120,7 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
                           final color = Colors.primaries[index];
 
                           return Padding(
+                            key: UniqueKey(),
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 5, vertical: 10),
                             child: InkWell(
@@ -129,6 +138,9 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
                         },
                       ),
                     ),
+
+                    // Save color an group name
+
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 15),
@@ -138,12 +150,12 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
                           final name = textEditingController.text.trim();
                           if (name.isEmpty) {
                             setState(() {
-                              errormesage = 'Name is require';
+                              errorMessage = 'Name is require';
                             });
                             return;
                           } else {
                             setState(() {
-                              errormesage = null;
+                              errorMessage = null;
                             });
                           }
                           final group = Groups(

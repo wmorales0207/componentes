@@ -21,23 +21,23 @@ export 'package:objectbox/objectbox.dart'; // so that callers only have to impor
 
 final _entities = <ModelEntity>[
   ModelEntity(
-      id: const IdUid(1, 7378324730887192746),
+      id: const IdUid(1, 6506906022655697584),
       name: 'Groups',
-      lastPropertyId: const IdUid(3, 2339300115414746364),
+      lastPropertyId: const IdUid(3, 1514934629981195697),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 5394906433759524792),
+            id: const IdUid(1, 5762684504580967041),
             name: 'id',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 3340115949953848458),
+            id: const IdUid(2, 1864006060202379886),
             name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 2339300115414746364),
+            id: const IdUid(3, 1514934629981195697),
             name: 'color',
             type: 6,
             flags: 0)
@@ -47,32 +47,32 @@ final _entities = <ModelEntity>[
         ModelBacklink(name: 'tasks', srcEntity: 'Tasks', srcField: '')
       ]),
   ModelEntity(
-      id: const IdUid(2, 3678629392194213209),
+      id: const IdUid(2, 8219711764999046108),
       name: 'Tasks',
-      lastPropertyId: const IdUid(4, 2179511184028697240),
+      lastPropertyId: const IdUid(4, 766828151250647703),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 2806360581853472035),
+            id: const IdUid(1, 9133314694379026687),
             name: 'id',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 4715236944096612560),
+            id: const IdUid(2, 1226268913930030492),
             name: 'description',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 3595603210369490083),
+            id: const IdUid(3, 3943490936842541466),
             name: 'completed',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 2179511184028697240),
+            id: const IdUid(4, 766828151250647703),
             name: 'groupId',
             type: 11,
             flags: 520,
-            indexId: const IdUid(1, 9192721691928839759),
+            indexId: const IdUid(1, 5834728413317329384),
             relationTarget: 'Groups')
       ],
       relations: <ModelRelation>[],
@@ -99,8 +99,8 @@ Future<Store> openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(2, 3678629392194213209),
-      lastIndexId: const IdUid(1, 9192721691928839759),
+      lastEntityId: const IdUid(2, 8219711764999046108),
+      lastIndexId: const IdUid(1, 5834728413317329384),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [],

@@ -8,7 +8,8 @@ class Groups {
   String name;
   int color;
 
-  @Backlink() // para que se encargue de enlazar y crear relaciones
+  @Backlink() //esta anotacion permite que se realzian los cambios en cascada, que cuadnp se pida un gruo venga con sus tareas 
+  // para que se encargue de enlazar y crear relaciones un grupo tiene varias tareas
   final tasks = ToMany<Tasks>();
   Groups({required this.color, required this.name});
 

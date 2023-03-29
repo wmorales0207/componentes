@@ -4,23 +4,23 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "1:7378324730887192746",
-      "lastPropertyId": "3:2339300115414746364",
+      "id": "1:6506906022655697584",
+      "lastPropertyId": "3:1514934629981195697",
       "name": "Groups",
       "properties": [
         {
-          "id": "1:5394906433759524792",
+          "id": "1:5762684504580967041",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:3340115949953848458",
+          "id": "2:1864006060202379886",
           "name": "name",
           "type": 9
         },
         {
-          "id": "3:2339300115414746364",
+          "id": "3:1514934629981195697",
           "name": "color",
           "type": 6
         }
@@ -28,40 +28,40 @@
       "relations": []
     },
     {
-      "id": "2:3678629392194213209",
-      "lastPropertyId": "4:2179511184028697240",
+      "id": "2:8219711764999046108",
+      "lastPropertyId": "4:766828151250647703",
       "name": "Tasks",
       "properties": [
         {
-          "id": "1:2806360581853472035",
+          "id": "1:9133314694379026687",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:4715236944096612560",
+          "id": "2:1226268913930030492",
           "name": "description",
           "type": 9
         },
         {
-          "id": "3:3595603210369490083",
+          "id": "3:3943490936842541466",
           "name": "completed",
           "type": 1
         },
         {
-          "id": "4:2179511184028697240",
+          "id": "4:766828151250647703",
           "name": "groupId",
           "type": 11,
           "flags": 520,
-          "indexId": "1:9192721691928839759",
+          "indexId": "1:5834728413317329384",
           "relationTarget": "Groups"
         }
       ],
       "relations": []
     }
   ],
-  "lastEntityId": "2:3678629392194213209",
-  "lastIndexId": "1:9192721691928839759",
+  "lastEntityId": "2:8219711764999046108",
+  "lastIndexId": "1:5834728413317329384",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 5,

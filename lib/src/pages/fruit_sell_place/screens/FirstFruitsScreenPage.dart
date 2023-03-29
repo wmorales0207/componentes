@@ -65,9 +65,7 @@ class _FirstFruitsScreenPageState extends State<FirstFruitsScreenPage> {
                 ],
               ),
 
-              const SizedBox(
-                height: 5.0,
-              ),
+              const SizedBox(height: 5.0),
               // tagline...
               RichText(
                 text: const TextSpan(children: [
@@ -94,9 +92,7 @@ class _FirstFruitsScreenPageState extends State<FirstFruitsScreenPage> {
                   ),
                 ]),
               ),
-              const SizedBox(
-                height: 30.0,
-              ),
+              const SizedBox(height: 30.0),
               Row(
                 children: [
                   Container(
@@ -110,16 +106,16 @@ class _FirstFruitsScreenPageState extends State<FirstFruitsScreenPage> {
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        const Icon(
+                      children: const <Widget>[
+                        Icon(
                           FontAwesomeIcons.magnifyingGlass,
                           size: 25.0,
                           color: Colors.amber,
                         ),
-                        const SizedBox(
-                          width: 10.0,
+                        SizedBox(
+                          width: 10.0
                         ),
-                        const Text(
+                        Text(
                           "Search PineApple",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -130,7 +126,7 @@ class _FirstFruitsScreenPageState extends State<FirstFruitsScreenPage> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 25.0,
                   ),
                   Container(
