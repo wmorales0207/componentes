@@ -58,10 +58,19 @@ class MyApp extends StatelessWidget {
       //home:HomePage(),
       initialRoute: _pref.ultimaPagina, // define una ruta por defecto
       routes: getApplicatonRoutes(),
+      // el theme es un asunto que define el como se ve toda la app el light y dar son por defecto y con el
+      // copywith se le introducen modificaciones.
+      theme: ThemeData.light().copyWith(
+        appBarTheme: AppBarTheme(
+          color: Colors.indigo,
+        ),
+
+      ),
       onGenerateRoute: (settings) {
         //cuando se pincha una pag que no tiene ruta definida este evento se dispara,
         // bueno para detectar cuando una pag no tiene route.
         //print('llamada ${settings.name}');
+
         return MaterialPageRoute(builder: (builder) => const AlertPage());
       },
     );
