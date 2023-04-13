@@ -32,7 +32,7 @@ class AspectRatioAlignPage extends StatelessWidget {
               ),
             ),
             const Text('botoon text'),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             const Text('botoon text'),

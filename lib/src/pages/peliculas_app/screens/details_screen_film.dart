@@ -1,6 +1,9 @@
+import 'package:componentes/src/pages/peliculas_app/models/movie.dart';
+import 'package:componentes/src/pages/peliculas_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
-class DetailsScreen extends StatelessWidget {
+class DetailsScreenFilm extends StatelessWidget {
+  static const route = "details";
   @override
   Widget build(BuildContext context) {
     //de esta forma se recogen los datos que fueron pasados como argumentos a DetailsScreen desde Navigator.pushNamed en MovieSlider
@@ -13,11 +16,11 @@ class DetailsScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           _CustomAppBar(movie),
+          // Para Seguir contruyendo lo demas de la UI es necesario usar SliverList ya que permite
+          // a;adir una lista de widget y ahi se pueden a;adir los comunes(Colums, text, row etc).
           SliverList(
             delegate: SliverChildListDelegate([
               _PosterAndTitle(movie),
-              _OverView(movie.overview),
-              _OverView(movie.overview),
               _OverView(movie.overview),
               _OverView(movie.overview),
               CastingSlider(idmovie: movie.id),
@@ -41,24 +44,30 @@ class _CustomAppBar extends StatelessWidget {
       backgroundColor: Colors.indigo,
       expandedHeight: 300.0,
       floating: false,
+      // no llega a desaparecer del todo
       pinned: true,
+      // este FlexibleSpaceBar tine un comportamiento bien adecuado para hacer scroll.
       flexibleSpace: FlexibleSpaceBar(
-          title: Container(
-              width: double.infinity,
-              alignment: Alignment.bottomCenter,
-              padding: const EdgeInsets.only(bottom: 10),
-              color: Colors.black12,
-              child: Text(
-                movie.getTitle,
-                style: const TextStyle(fontSize: 16),
-              )),
-          titlePadding: const EdgeInsets.all(0),
-          centerTitle: true,
-          background: FadeInImage(
-            placeholder: const AssetImage('assets/giphy.gif'),
-            image: NetworkImage(movie.getBackDropPath),
-            fit: BoxFit.cover,
-          )),
+        // el title no tienen que se r un texto necesariamnte, es un widget y con eso se puede poner cualquier cosa
+        title: Container(
+            width: double.infinity,
+            alignment: Alignment.bottomCenter,
+            padding: const EdgeInsets.only(bottom: 10),
+            color: Colors.black12,
+            child: Text(
+              movie.getTitle,
+              style: const TextStyle(fontSize: 16),
+            )),
+        // cuando le pones el container y cambias el color , por debajo queda un remnente del color de fondo del texto
+        //anterior y con  titlePadding: const EdgeInsets.all(0) se elimina
+        titlePadding: const EdgeInsets.all(0),
+        centerTitle: true,
+        background: FadeInImage(
+          placeholder: const AssetImage('assets/peliculasApp/giphy.gif'),
+          image: NetworkImage(movie.getBackDropPath),
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 }
@@ -69,11 +78,11 @@ class _PosterAndTitle extends StatelessWidget {
   const _PosterAndTitle(this.movie);
   @override
   Widget build(BuildContext context) {
-    final _textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
     return Container(
-      margin: EdgeInsets.only(top: 20.0),
-      padding: EdgeInsets.symmetric(horizontal: 20.0),
-      width: 130,
+      margin: const EdgeInsets.only(top: 20.0),
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      width: 110,
       height: 190,
       child: Row(children: [
         Hero(
@@ -81,43 +90,44 @@ class _PosterAndTitle extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10.0),
             child: FadeInImage(
-              placeholder: AssetImage('assets/300x400.png'),
+              placeholder: const AssetImage('assets/peliculasApp/300x400.png'),
               image: NetworkImage(movie.getPosterImg),
               fit: BoxFit.cover,
             ),
           ),
         ),
         Container(
-          width: 230,
-          margin: EdgeInsets.only(left: 10.0),
+          width: 180,
+          margin: const EdgeInsets.only(left: 10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 movie.getTitle,
-                style: _textTheme.headline5,
+                style: textTheme.headline5,
                 overflow: TextOverflow.ellipsis,
-                maxLines: 2,
+                maxLines: 3,
               ),
               Text(
                 movie.originalTitle,
-                style: _textTheme.subtitle1,
+                style: textTheme.subtitle1,
                 overflow: TextOverflow.ellipsis,
+                maxLines: 2,
               ),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.star_outline,
                     size: 15,
                     color: Colors.grey,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5.0,
                   ),
                   Text(
                     '${movie.voteAverage}',
-                    style: _textTheme.caption,
+                    style: textTheme.caption,
                   )
                 ],
               ),
@@ -138,7 +148,7 @@ class _OverView extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Text(
         overview,
         style: Theme.of(context).textTheme.subtitle2,

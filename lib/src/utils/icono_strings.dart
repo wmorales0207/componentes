@@ -1,5 +1,6 @@
 import 'package:componentes/src/pages/OuthPages/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // aca en este . dart se creo un map que machea el nombre de un icono con el componente
 // una llamada al metodo geticon carga el asignado en el map.
@@ -34,6 +35,9 @@ final _icons = <String, IconData>{
   'OuthFirebase': Icons.fire_extinguisher,
   'Fruits': Icons.local_grocery_store_outlined,
   'cacheNetworkImage': Icons.network_check,
+  'Peliculas': FontAwesomeIcons.film,
+  'MainFoddPage': FontAwesomeIcons.bowlFood,
+  
 };
 
 Icon getIcon(String nombreIcono) {

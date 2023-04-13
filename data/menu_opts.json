@@ -17,6 +17,17 @@
             "icon":"Fruits",
             "texto":"Fruits Shop"
         },
+
+        {
+            "ruta":"MainFoddPage",
+            "icon":"MainFoddPage",
+            "texto":"Ecomerce Food"
+        },
+        {
+            "ruta":"Peliculas",
+            "icon":"Peliculas",
+            "texto":"Peliculas"
+        },
         {
             "ruta":"cacheNetworkImage",
             "icon":"cacheNetworkImage",

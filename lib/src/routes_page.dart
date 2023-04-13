@@ -1,3 +1,4 @@
+import 'package:componentes/src/Ecomerce_google/home/main_food_page.dart';
 import 'package:componentes/src/pages/CacheNetworkImage/CacheNetworkImagePage.dart';
 import 'package:componentes/src/pages/OuthPages/login_page.dart';
 import 'package:componentes/src/pages/about_dialog_page.dart';
@@ -22,6 +23,8 @@ import 'package:componentes/src/pages/list_view_pages/other_listview_page.dart';
 import 'package:componentes/src/pages/listiew_page.dart';
 import 'package:componentes/src/pages/modifyproducts/modify_card.dart';
 import 'package:componentes/src/pages/nuemorphicbutton.dart';
+import 'package:componentes/src/pages/peliculas_app/screens/details_screen_film.dart';
+import 'package:componentes/src/pages/peliculas_app/screens/home_screen.dart';
 import 'package:componentes/src/pages/persona_list.dart';
 import 'package:componentes/src/pages/reordenable_list.dart';
 import 'package:componentes/src/pages/slider_page.dart';
@@ -71,6 +74,9 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   InitManagmentPage.route: (context) => const InitManagmentPage(),
   IntroScreen.route: (_) => const IntroScreen(),
   CacheNetworkImagePage.route: (context) => const CacheNetworkImagePage(),
+  HomeScreen.route: (context) => HomeScreen(),
+  DetailsScreenFilm.route: (context) => DetailsScreenFilm(),
+  MainFoddPage.route: (context) => MainFoddPage(),
 
   // si se deseara llamar desde una page a otra con pasar al metodo Navigator.pushNamed(context, String)
   // el string seria avatar 0 alert o / para ir al principal, normalmente un botton de regreso es lo que se usa

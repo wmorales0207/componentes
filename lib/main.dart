@@ -1,5 +1,6 @@
 import 'package:componentes/src/pages/alert_page.dart';
 import 'package:componentes/src/pages/modifyproducts/product_service.dart';
+import 'package:componentes/src/pages/peliculas_app/providers/movie_provider.dart';
 import 'package:componentes/src/routes_page.dart';
 import 'package:componentes/src/settings/model/preferencia_usuaro.dart';
 //import 'package:flutter_localizations/flutter_localizations.dart'; // esta importacion es necesaria para trabajar con los idiomas
@@ -15,24 +16,29 @@ void main() async {
   // en el mmain esta linea de codigo es necesaria.
 
 // las prefrencias de usuario deben inicializarse  en la capa mas superior que se pueda , pues como es un
-// future se demorara para cargar. Al hacerlo en el main da tiempo a que las variables tomen su valor.
+// future se demorara para cargar. Al hacerlo en el main da ti
+//empo a que las variables tomen su valor.
   final _pref = UserPreference();
   await _pref
       .initPreference(); //  El main tiene que ser async para poder poder await aqui.
 
-  runApp(MyApp());
+  runApp(AppState());
 }
 
 ////this class its created for the provider, create then on the top of the widgets tree
 class AppState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(providers: [
-      ChangeNotifierProvider(
-        create: (_) => ProductService(),
-        child: MyApp(),
-      ),
-    ]);
+    //aca se realiza la instancaicion de un provider, en este caso con acceso totan en la app
+    // por defecto se cre crea de manera lazy = true, (solo hasta que un widget la necesite, si esta creada la retorna s no la crea)
+    //
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ProductService()),
+        ChangeNotifierProvider(create: (_) => MoviesProvider()),
+      ],
+      child: MyApp(),
+    );
   }
 }
 
@@ -61,10 +67,10 @@ class MyApp extends StatelessWidget {
       // el theme es un asunto que define el como se ve toda la app el light y dar son por defecto y con el
       // copywith se le introducen modificaciones.
       theme: ThemeData.light().copyWith(
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           color: Colors.indigo,
+          
         ),
-
       ),
       onGenerateRoute: (settings) {
         //cuando se pincha una pag que no tiene ruta definida este evento se dispara,

@@ -1,8 +1,11 @@
+import 'package:componentes/src/pages/peliculas_app/models/models.dart';
+import 'package:componentes/src/pages/peliculas_app/screens/details_screen_film.dart';
 import 'package:flutter/material.dart';
 import '../models/models.dart';
 
 class MovieSlider extends StatefulWidget {
   final List<Movie> movies;
+  // el widget recibira una funcion como parametros, funcion que sera llamada cuando se cumpla el requisito del scroll
   final Function onNexPage;
   MovieSlider({required this.movies, required this.onNexPage});
 
@@ -11,11 +14,14 @@ class MovieSlider extends StatefulWidget {
 }
 
 class _MovieSliderState extends State<MovieSlider> {
+  // con el ScrollController logro controllar cuando ha llegado al final y asi poder hacer acciones en funcion del scroll., tambien de
+  //debe ser un statefullwidget para poder redibujar mas facil
   final ScrollController scrollController = ScrollController();
 
   @override
   void initState() {
     scrollController.addListener(() {
+      // se le resta 500 a la posicion de los pixels para que cuando este cercano al final haga la llmada de metodo onNexPage
       if (scrollController.position.pixels >=
           scrollController.position.maxScrollExtent - 500) widget.onNexPage();
     });
@@ -35,16 +41,16 @@ class _MovieSliderState extends State<MovieSlider> {
       width: double.infinity,
       height: size.height * 0.38,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        // Si no hay titulo este widget no se muestra
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0),
-          child: Text(
-            'Populares',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
+          child: Text('Populares',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
         ),
         Expanded(
           // el listview define su heigth por su padre, por lo que un expended le dice , que ocupe todo el espacio disponible
           child: ListView.builder(
+            // ACA SE asocia el controller al Listview ya que en este caso es le que muestra la info que se desea scrollear
             controller: scrollController,
             scrollDirection: Axis.horizontal,
             itemCount: widget.movies.length,
@@ -60,28 +66,30 @@ class _MovieSliderState extends State<MovieSlider> {
 // _ define que es una clase privada, qie solo exisira en este archivo
 class _MoviePoster extends StatelessWidget {
   final Movie movie;
-
+  
   _MoviePoster({required this.movie});
 
   @override
   Widget build(BuildContext context) {
     movie.heroId = 'slider-${movie.id}';
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-      width: 130,
+      margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+      width: 110,
       height: 190,
       child: Column(children: [
         GestureDetector(
-          onTap: () =>
-              Navigator.pushNamed(context, 'details', arguments: movie),
+          onTap: () => Navigator.pushNamed(context, DetailsScreenFilm.route,
+              arguments: movie),
           child: Hero(
             tag: movie.heroId!,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10.0),
               child: FadeInImage(
-                placeholder: AssetImage('assets/giphy.gif'),
-                image: NetworkImage(movie.getPosterImg),
-                fit: BoxFit.cover,
+                placeholder: const AssetImage('assets/peliculasApp/giphy.gif'),
+                image: NetworkImage(
+                  movie.getPosterImg,
+                ),
+                //fit: BoxFit.fitWidth,
               ),
             ),
           ),
