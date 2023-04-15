@@ -21,6 +21,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   // vale 0.8 pues 1-0.8 es lo que se visualiza a cada lado del page que si se visualiza
   var scaleFactor = 0.8;
 
+  double _heigth = 220.0;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -64,12 +66,26 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     Matrix4 matrix4 = Matrix4.identity();
     if (index == _currentPageValue.floor()) {
       var currentScale = 1 - (_currentPageValue - index) * (1 - scaleFactor);
-      matrix4 = Matrix4.diagonal3Values(1, currentScale, 1);
+      var currTransf = _heigth * (1 - currentScale) / 2;
+      matrix4 = Matrix4.diagonal3Values(1, currentScale, 1)
+        ..setTranslationRaw(0, currTransf, 0);
     } else if (index == _currentPageValue.floor() + 1) {
       var currentScale =
           scaleFactor + (_currentPageValue - index + 1) * (1 - scaleFactor);
-      matrix4 = Matrix4.diagonal3Values(1, currentScale, 1);
+      var currTransf = _heigth * (1 - currentScale) / 2;
+      matrix4 = Matrix4.diagonal3Values(1, currentScale, 1)
+        ..setTranslationRaw(0, currTransf, 0);
+    } else if (index == _currentPageValue.floor() - 1) {
+      var currentScale = 1 - (_currentPageValue - index) * (1 - scaleFactor);
+      var currTransf = _heigth * (1 - currentScale) / 2;
+      matrix4 = Matrix4.diagonal3Values(1, currentScale, 1)
+        ..setTranslationRaw(0, currTransf, 0);
+    } else {
+      var currScale = 0.8;
+      matrix4 = Matrix4.diagonal3Values(1, currScale, 1)
+        ..setTranslationRaw(0, _heigth * (1 - scaleFactor/2), 1);
     }
+
     // aqui el transform hace una excelente animacion, se mueve en el eje X
     return Transform(
       transform: matrix4,
@@ -107,9 +123,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   children: [
                     // texto de la caja
                     BigTexts(text: "chinese teny"),
-                    SizedBox(
-                      height: 5.0,
-                    ),
+                    SizedBox(height: 5.0),
                     // start list an others
                     Row(
                       children: [
@@ -137,7 +151,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                         IconTextWidget(
                             iconData: Icons.location_on,
                             text: "1.7 km",
-                            colorText: AppColors.iconColor1),
+                            colorText: AppColors.mainColor),
                         IconTextWidget(
                             iconData: Icons.access_time_rounded,
                             text: "23 min",
