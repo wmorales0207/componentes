@@ -1,4 +1,7 @@
+import 'package:componentes/src/Ecomerce_google/home/food_page_body.dart';
 import 'package:componentes/src/Ecomerce_google/utils/colors.dart';
+import 'package:componentes/src/Ecomerce_google/widgets/big_text.dart';
+import 'package:componentes/src/Ecomerce_google/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 
 class MainFoddPage extends StatefulWidget {
@@ -15,6 +18,7 @@ class _MainFoddPage extends State<MainFoddPage> {
     return Scaffold(
       body: Column(
         children: [
+          // top container ifoemation
           Container(
             margin: EdgeInsets.only(top: 45, bottom: 15),
             padding: EdgeInsets.only(left: 20, right: 20),
@@ -23,8 +27,13 @@ class _MainFoddPage extends State<MainFoddPage> {
               children: [
                 Column(
                   children: [
-                    Text("Country"),
-                    Text("City"),
+                    BigTexts(text: "Bangladesh", color: AppColors.mainColor),
+                    Row(
+                      children: [
+                        SmallText(text: "City", color: Colors.black54),
+                        const Icon(Icons.arrow_drop_down)
+                      ],
+                    ),
                   ],
                 ),
                 Container(
@@ -39,6 +48,8 @@ class _MainFoddPage extends State<MainFoddPage> {
               ],
             ),
           ),
+          //  seccion del food body
+          FoodPageBody(),
         ],
       ),
     );

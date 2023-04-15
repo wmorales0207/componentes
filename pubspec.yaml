@@ -63,12 +63,28 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+# el uso de estas fuentes estan descargadas y puestas en Asset como un recurso local a consumir. 
+  fonts:
+    - family: Roboto
+      fonts:
+        -  asset: assets/ecomerce_app_fonts/Roboto-Black.ttf
+           weight: 900
+        -  asset: assets/ecomerce_app_fonts/Roboto-Regular.ttf
+           weight: 400   
+        -  asset: assets/ecomerce_app_fonts/Roboto-Medium.ttf
+           weight: 500
+        -  asset: assets/ecomerce_app_fonts/Roboto-Bold.ttf
+           weight: 700
+
 
   # To add assets to your application, add an assets section, like this:
   assets:
     - data/menu_opts.json
     - assets/
     - assets/peliculasApp/
+    - assets/ecomerce_app_fonts/pictures/
+    
+
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware
     # For details regarding adding assets from package dependencies, see
