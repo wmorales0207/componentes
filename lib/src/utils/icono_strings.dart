@@ -37,6 +37,9 @@ final _icons = <String, IconData>{
   'cacheNetworkImage': Icons.network_check,
   'Peliculas': FontAwesomeIcons.film,
   'MainFoddPage': FontAwesomeIcons.bowlFood,
+  'ValueChanged': FontAwesomeIcons.chargingStation,
+  'WhatsAppMain': FontAwesomeIcons.whatsapp,
+
   
 };
 

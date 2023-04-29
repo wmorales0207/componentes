@@ -6,7 +6,7 @@ class DesktopBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('M O B I L E')),
+      appBar: AppBar(title: const Text('D E S K T O P')),
       backgroundColor: Colors.deepPurple[400],
       body: Column(
         children: [

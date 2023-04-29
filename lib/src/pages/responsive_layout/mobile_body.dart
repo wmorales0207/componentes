@@ -6,7 +6,7 @@ class MobileBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('D E S K T O P')),
+      appBar: AppBar(title: const Text('M OV I L E')),
       backgroundColor: Colors.deepPurple[400],
       body: Row(
         children: [

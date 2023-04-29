@@ -2,7 +2,9 @@ import 'package:componentes/src/Ecomerce_google/utils/colors.dart';
 import 'package:componentes/src/Ecomerce_google/widgets/big_text.dart';
 import 'package:componentes/src/Ecomerce_google/widgets/icon_text_wdget.dart';
 import 'package:componentes/src/Ecomerce_google/widgets/small_text.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+//import 'package:dots_indicators/dots_indicators.dart'
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({super.key});
@@ -47,20 +49,62 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red,
-      height: 320,
-      child: PageView.builder(
-        itemCount: 5,
-        controller: pageController,
-        itemBuilder: (context, index) {
-          return _buildPageItem(index);
-        },
-      ),
+    final double screenHeight = MediaQuery.of(context).size.width;
+    final double screenWidth = MediaQuery.of(context).size.height;
+    final double pageViewContainer = screenHeight / 3.84;
+    final double pageView = screenHeight / 3.84;
+    final double pageViewTextContainer = screenHeight / 7.03;
+
+    //
+    final double height10 = screenHeight / 84.4;
+    final double height15 = screenHeight / 56.27;
+    final double height20 = screenHeight / 82.2;
+    final double height30 = screenHeight / 28.13;
+
+    // width, padding margin
+
+    final double width10 = screenHeight / 84.4;
+    final double width15 = screenHeight / 56.27;
+    final double width20 = screenHeight / 82.2;
+    final double width30 = screenHeight / 28.13;
+
+    //
+    //final double fonts20 = screenHeight / 42.2;
+    final double radius20 = screenHeight / 42.2;
+    final double radius30 = screenHeight / 28.13;
+
+    _heigth = pageViewContainer;
+
+    /// esta declaracion es temporal aligual que todo lo que esta encima por no usar GET
+
+    return Column(
+      children: [
+        Container(
+          //color: Colors.red,
+          height: pageViewContainer,
+          child: PageView.builder(
+            itemCount: 5,
+            controller: pageController,
+            itemBuilder: (context, index) {
+              return _buildPageItem(index, height10, radius20, radius30,
+                  pageViewContainer, pageViewTextContainer);
+            },
+          ),
+        ),
+        DotsIndicator(
+            dotsCount: 5,
+            position: _currentPageValue,
+            decorator: DotsDecorator(
+                size: const Size.square(9.0),
+                activeSize: const Size(18.0, 9.0),
+                activeShape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0)))),
+      ],
     );
   }
 
-  Widget _buildPageItem(int index) {
+  Widget _buildPageItem(int index, double Height10, double radius20,
+      double radius30, double pageViewContainer, double pageViewTextContainer) {
 // esta codigo permite el aumento de tamano y la disminucion cuando el page view selecciona una page
 // el _currentPageValue + scale factor ambos se combinan para esto.
     Matrix4 matrix4 = Matrix4.identity();
@@ -83,7 +127,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     } else {
       var currScale = 0.8;
       matrix4 = Matrix4.diagonal3Values(1, currScale, 1)
-        ..setTranslationRaw(0, _heigth * (1 - scaleFactor/2), 1);
+        ..setTranslationRaw(0, _heigth * (1 - scaleFactor / 2), 1);
     }
 
     // aqui el transform hace una excelente animacion, se mueve en el eje X
@@ -93,10 +137,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         children: [
           Container(
             height:
-                220, //this is not needed becouse the container take the father's size, but we need  all the space(usong Stack). and the container is taking all
+                pageViewContainer, //this is not needed becouse the container take the father's size, but we need  all the space(usong Stack). and the container is taking all
             margin: const EdgeInsets.only(left: 15, top: 10),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(radius30),
               color: index.isEven
                   ? const Color(0xFF69c5df)
                   : const Color(0xFF9294cc),
@@ -110,12 +154,20 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             alignment: Alignment.bottomCenter,
             child: Container(
               //this is not needed because the container take the father's size, but we need  all the space(usong Stack). and the container is taking all
-              height: 120,
-              margin: const EdgeInsets.only(left: 30, right: 30, bottom: 20),
+              height: pageViewTextContainer,
+              margin: const EdgeInsets.only(left: 30, right: 30, bottom: 10),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: Colors.white,
-              ),
+                  borderRadius: BorderRadius.circular(radius20),
+                  color: Colors.white,
+                  boxShadow: const [
+                    BoxShadow(
+                        color: Color(0xFFe8e8e8), // es como un gris
+                        blurRadius:
+                            6.0, // mientras mayor es en el munero mas difuso se ve.
+                        offset: Offset(0, 5)),
+                    BoxShadow(color: Colors.white, offset: Offset(5, 0)),
+                    BoxShadow(color: Colors.white, offset: Offset(-5, 0))
+                  ]),
               child: Container(
                 margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
                 child: Column(
@@ -123,7 +175,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   children: [
                     // texto de la caja
                     BigTexts(text: "chinese teny"),
-                    SizedBox(height: 5.0),
+                    const SizedBox(height: 5.0),
                     // start list an others
                     Row(
                       children: [
@@ -133,29 +185,30 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                 5,
                                 (index) => const Icon(Icons.stars,
                                     color: Colors.blue, size: 15))),
-                        const SizedBox(width: 10),
+                        SizedBox(height: Height10),
                         SmallText(text: "4.5"),
-                        const SizedBox(width: 10),
-                        SmallText(text: "12345"),
-                        const SizedBox(width: 10),
+                        SizedBox(height: Height10),
+                        SmallText(text: "12"),
+                        SizedBox(height: Height10),
                         SmallText(text: "Comments"),
                       ],
                     ),
                     const SizedBox(width: 20),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconTextWidget(
                             iconData: Icons.circle_sharp,
                             text: "Normal",
-                            colorText: AppColors.iconColor1),
+                            iconColor: AppColors.iconColor1),
                         IconTextWidget(
                             iconData: Icons.location_on,
                             text: "1.7 km",
-                            colorText: AppColors.mainColor),
+                            iconColor: AppColors.mainColor),
                         IconTextWidget(
                             iconData: Icons.access_time_rounded,
                             text: "23 min",
-                            colorText: AppColors.iconColor2),
+                            iconColor: AppColors.iconColor2),
                       ],
                     )
                   ],

@@ -11,7 +11,7 @@ class ResponsiveLayutPage extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth < 600) {
-          // when the maxWidth is less than 600 must be an mobile device
+          // when the maxWidth is less than 600 must be a mobile device
           return mobileBody;
         } else {
           return desktopBody;

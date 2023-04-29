@@ -11,13 +11,24 @@
             "icon":"key",
             "texto":"Some Keys"
         },
+        {
+            "ruta":"MaindetailsScreen",
+            "icon":"ValueChanged",
+            "texto":"Value Changed Keys"
+        },
 
         {
             "ruta":"Fruits",
             "icon":"Fruits",
             "texto":"Fruits Shop"
         },
+        {
+            "ruta":"WhatsAppMain",
+            "icon":"WhatsAppMain",
+            "texto":"Whats App"
+        },
 
+        
         {
             "ruta":"MainFoddPage",
             "icon":"MainFoddPage",

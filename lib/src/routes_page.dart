@@ -32,7 +32,9 @@ import 'package:componentes/src/pages/state_managment/init_managment_state.dart'
 import 'package:componentes/src/pages/text_editing_controller_page.dart';
 import 'package:componentes/src/pages/url_launcher.dart';
 import 'package:componentes/src/pages/using_keys_page.dart';
+import 'package:componentes/src/pages/watasapp_Responsive/whatsapp_main.dart';
 import 'package:componentes/src/settings/sreens/setting_page2.dart';
+import 'package:componentes/src/value_changed/main_details_list.dart';
 import 'package:flutter/material.dart';
 
 Map<String, WidgetBuilder> getApplicatonRoutes() => _myOwnRoutes;
@@ -76,7 +78,9 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   CacheNetworkImagePage.route: (context) => const CacheNetworkImagePage(),
   HomeScreen.route: (context) => HomeScreen(),
   DetailsScreenFilm.route: (context) => DetailsScreenFilm(),
-  MainFoddPage.route: (context) => MainFoddPage(),
+  MainFoddPage.route: (context) => const MainFoddPage(),
+  MaindetailsScreen.route: (context) => const MaindetailsScreen(),
+  WhatsAppMain.route: (context) => WhatsAppMain(),
 
   // si se deseara llamar desde una page a otra con pasar al metodo Navigator.pushNamed(context, String)
   // el string seria avatar 0 alert o / para ir al principal, normalmente un botton de regreso es lo que se usa
