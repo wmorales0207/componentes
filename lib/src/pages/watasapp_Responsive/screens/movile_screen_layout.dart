@@ -25,14 +25,14 @@ class MovileScreenLayout extends StatelessWidget {
             actions: [
               IconButton(
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.search,
                   color: Colors.grey,
                 ),
               ),
               IconButton(
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.more_vert,
                   color: Colors.grey,
                 ),
@@ -62,7 +62,7 @@ class MovileScreenLayout extends StatelessWidget {
           ),
           backgroundColor: background,
           body: //Center(child: Text("dsds"))
-              ContactList()),
+              const ContactList()),
     );
   }
 }

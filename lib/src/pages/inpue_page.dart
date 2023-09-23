@@ -12,10 +12,10 @@ class _InputPageState extends State<InputPage> {
   String _email = '';
   String _pass = '';
   String _fecha = '';
-  List<String> _powerList = ['volar', 'rayos', 'laser'];
+  final List<String> _powerList = ['volar', 'rayos', 'laser'];
   String _opcionSelecionada = 'volar';
 
-  TextEditingController? _inputTextEditController = TextEditingController();
+  final TextEditingController _inputTextEditController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class _InputPageState extends State<InputPage> {
         title: const Text('Imputs'),
       ),
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
         children: <Widget>[
           _crearInputs(),
           const Divider(),
@@ -160,7 +160,7 @@ class _InputPageState extends State<InputPage> {
         _fecha = picked.toString();
 
 // esta linea no funciona revisar. no se a;ade lo que se selecciona al componente que muestra la fecha.
-        _inputTextEditController!.text = _fecha;
+        _inputTextEditController.text = _fecha;
       });
     }
   }

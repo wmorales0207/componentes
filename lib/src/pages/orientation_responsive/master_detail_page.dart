@@ -3,6 +3,8 @@ import 'package:componentes/src/pages/orientation_responsive/detail_widget.dart'
 import 'package:flutter/material.dart';
 
 class MasterDetailPage extends StatefulWidget {
+  const MasterDetailPage({super.key});
+
   @override
   _MasterDetailPageState createState() => _MasterDetailPageState();
 }

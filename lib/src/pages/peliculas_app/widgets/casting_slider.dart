@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 class CastingSlider extends StatelessWidget {
   final int idmovie;
   
-  const CastingSlider({required this.idmovie});
+  const CastingSlider({super.key, required this.idmovie});
   @override
   Widget build(BuildContext context) {
     final movieProvider=Provider.of<MoviesProvider>(context,listen: false);

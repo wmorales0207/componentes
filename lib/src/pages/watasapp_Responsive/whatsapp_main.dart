@@ -12,7 +12,7 @@ class WhatsAppMain extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: background,
-      child: ResponsiveLayout(
+      child: const ResponsiveLayout(
           movileScreenLayout: MovileScreenLayout(),
           webScreenLayout: WebScreenLayout()),
     );

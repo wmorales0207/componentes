@@ -38,8 +38,8 @@ class BoxContain extends StatelessWidget {
               ),
               Container(
                 width: double.infinity,
-                margin: EdgeInsets.only(right: 60),
-                padding: EdgeInsets.all(15),
+                margin: const EdgeInsets.only(right: 60),
+                padding: const EdgeInsets.all(15),
                 height: 70,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(

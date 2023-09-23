@@ -61,7 +61,7 @@ class _FontAwesomeIconsPageState extends State<FontAwesomeIconsPage> {
               const SizedBox(height: 5),
               Text(
                 categoryLit[index].name,
-                style: TextStyle(fontSize: 12),
+                style: const TextStyle(fontSize: 12),
               ),
             ],
           ),

@@ -49,11 +49,11 @@ class HomePageTemp extends StatelessWidget {
           )
         });
     // la variable output obtiene un Iterable<Set<Widget>> por lo que es necesario metersed entro parasacar la info
-    output.forEach((element) {
-      element.forEach((element) {
+    for (var element in output) {
+      for (var element in element) {
         salida.add(element);
-      });
-    });
+      }
+    }
     return salida;
   }
 }

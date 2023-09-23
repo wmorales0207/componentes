@@ -1,13 +1,12 @@
 import 'package:componentes/src/pages/peliculas_app/models/models.dart';
 import 'package:componentes/src/pages/peliculas_app/screens/details_screen_film.dart';
 import 'package:flutter/material.dart';
-import '../models/models.dart';
 
 class MovieSlider extends StatefulWidget {
   final List<Movie> movies;
   // el widget recibira una funcion como parametros, funcion que sera llamada cuando se cumpla el requisito del scroll
   final Function onNexPage;
-  MovieSlider({required this.movies, required this.onNexPage});
+  const MovieSlider({super.key, required this.movies, required this.onNexPage});
 
   @override
   State<MovieSlider> createState() => _MovieSliderState();
@@ -67,7 +66,7 @@ class _MovieSliderState extends State<MovieSlider> {
 class _MoviePoster extends StatelessWidget {
   final Movie movie;
   
-  _MoviePoster({required this.movie});
+  const _MoviePoster({required this.movie});
 
   @override
   Widget build(BuildContext context) {

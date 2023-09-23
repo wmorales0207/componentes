@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class DetailPage extends StatefulWidget {
   final int data;
-  DetailPage(this.data);
+  const DetailPage(this.data, {super.key});
   @override
   _DetailPageState createState() => _DetailPageState();
 }

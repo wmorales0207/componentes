@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:componentes/src/pages/fontAwesomeicons/fontawesomeicons_page.dart';
 import 'package:componentes/src/pages/fruit_sell_place/data/data.dart';
 import 'package:componentes/src/pages/fruit_sell_place/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -58,7 +57,7 @@ class ProductWigets extends StatelessWidget {
             left: 0,
             bottom: 0,
             child: Container(
-              margin: EdgeInsets.only(left: 10),
+              margin: const EdgeInsets.only(left: 10),
               height: 100,
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

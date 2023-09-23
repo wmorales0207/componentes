@@ -20,7 +20,7 @@ class _PersonListState extends State<PersonList> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text(
+        title: const Text(
           'Person List',
           style: TextStyle(
             fontSize: 30.0,
@@ -42,7 +42,7 @@ class _PersonListState extends State<PersonList> {
             leading: CircleAvatar(
               child: Text(PersonList[index].name.substring(0, 1).toUpperCase()),
             ),
-            trailing: Icon(Icons.arrow_forward_ios),
+            trailing: const Icon(Icons.arrow_forward_ios),
             onLongPress: () {},
           );
         }),

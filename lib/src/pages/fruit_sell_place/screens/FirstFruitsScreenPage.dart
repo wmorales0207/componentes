@@ -36,9 +36,9 @@ class _FirstFruitsScreenPageState extends State<FirstFruitsScreenPage> {
                   const SizedBox(
                     width: 5,
                   ),
-                  Column(
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const <Widget>[
+                    children: <Widget>[
                       Text(
                         "Welcome Back",
                         style: TextStyle(
@@ -104,9 +104,9 @@ class _FirstFruitsScreenPageState extends State<FirstFruitsScreenPage> {
                       boxShadow: boxShadow,
                       borderRadius: BorderRadius.circular(30.0),
                     ),
-                    child: Row(
+                    child: const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const <Widget>[
+                      children: <Widget>[
                         Icon(
                           FontAwesomeIcons.magnifyingGlass,
                           size: 25.0,

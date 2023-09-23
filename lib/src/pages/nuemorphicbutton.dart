@@ -4,7 +4,7 @@ import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 class NeumorphicButton extends StatefulWidget {
   static const route = 'NeumorphicButton';
 
-  NeumorphicButton({super.key});
+  const NeumorphicButton({super.key});
 
   @override
   State<NeumorphicButton> createState() => _NeumorphicButtonState();
@@ -18,7 +18,7 @@ class _NeumorphicButtonState extends State<NeumorphicButton> {
   @override
   Widget build(BuildContext context) {
     var blur = ispressed ? 5.0 : 30.0;
-    final isdarkmode = const Color(0xff2e3239);
+    const isdarkmode = Color(0xff2e3239);
 
     var distance = ispressed ? const Offset(10, 10) : const Offset(28, 28);
 
@@ -41,7 +41,7 @@ class _NeumorphicButtonState extends State<NeumorphicButton> {
                         blur, // give son degradado to the shadow if bigger number bigger degradado
                     offset: distance,
                     inset: ispressed,
-                    color: Color(0xfaa7a9af)), //give a shadow botton -right
+                    color: const Color(0xfaa7a9af)), //give a shadow botton -right
 
                 BoxShadow(
                     blurRadius:

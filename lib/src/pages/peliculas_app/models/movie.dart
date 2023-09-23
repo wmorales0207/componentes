@@ -36,11 +36,11 @@ class Movie {
   String? heroId;  
 
   String get getPosterImg {
-    return this.posterPath!=null ? 'https://image.tmdb.org/t/p/w500${this.posterPath}':'https://i.stack.imgur.com/GNhx0.png';
+    return posterPath!=null ? 'https://image.tmdb.org/t/p/w500$posterPath':'https://i.stack.imgur.com/GNhx0.png';
   }
 
    String get getBackDropPath {
-    return this.backdropPath!=null ? 'https://image.tmdb.org/t/p/w500${this.backdropPath}':'https://i.stack.imgur.com/GNhx0.png';
+    return backdropPath!=null ? 'https://image.tmdb.org/t/p/w500$backdropPath':'https://i.stack.imgur.com/GNhx0.png';
   }
 
   get getTitle {

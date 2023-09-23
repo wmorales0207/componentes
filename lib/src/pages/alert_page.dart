@@ -15,7 +15,7 @@ class AlertPage extends StatelessWidget {
             () => _mostrarAlerta(context);
           },
           style: ElevatedButton.styleFrom(
-            primary: Colors.blueGrey,
+            backgroundColor: Colors.blueGrey,
             shape: const StadiumBorder(),
           ),
           child: const Text('Mostrar Alerta'),
@@ -42,9 +42,9 @@ class AlertPage extends StatelessWidget {
             borderRadius: BorderRadius.circular(20.0),
           ),
           title: const Text('Texto'),
-          content: Column(
+          content: const Column(
             mainAxisSize: MainAxisSize.min, // ajusta el modal a tama;o minimo
-            children: const <Widget>[
+            children: <Widget>[
               Text('Este es el contenido de la caja'),
               FlutterLogo(
                 size: 100.0,

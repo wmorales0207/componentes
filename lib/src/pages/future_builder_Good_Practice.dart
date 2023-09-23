@@ -29,13 +29,13 @@ class _FutureBuilderGPState extends State<FutureBuilderGP> {
     futuredata = getData();
   }
 
-/** este comportamiento se aprecia cuando la devolucion de es un Future<int?> (permite Null)
- * Cuadno se ejecuta el botton el futue builder realiza una recarga de la informacion . O sea que
- * se ejecuta el el loading entre cada dato.. PERO   el futire conserav el dato anterior hasta que no vemga el proximo
- * en el la ejecucion del future .. cuando se ejecuta pro primera vez el future no tiene info previa q no ser que se defina 
- * en el initial data del future .. En la segunda recarga de la info si conserva el dato anterior en la if (snapshot.connectionState == ConnectionState.waiting) .. aqui.. ahy data la segunda vez
- * por lo que se puede poner codigo que la muestre mientra se recarga por el new data.
- * */
+/// este comportamiento se aprecia cuando la devolucion de es un Future<int?> (permite Null)
+/// Cuadno se ejecuta el botton el futue builder realiza una recarga de la informacion . O sea que
+/// se ejecuta el el loading entre cada dato.. PERO   el futire conserav el dato anterior hasta que no vemga el proximo
+/// en el la ejecucion del future .. cuando se ejecuta pro primera vez el future no tiene info previa q no ser que se defina 
+/// en el initial data del future .. En la segunda recarga de la info si conserva el dato anterior en la if (snapshot.connectionState == ConnectionState.waiting) .. aqui.. ahy data la segunda vez
+/// por lo que se puede poner codigo que la muestre mientra se recarga por el new data.
+///
   @override
   Widget build(BuildContext context) {
     return Scaffold(

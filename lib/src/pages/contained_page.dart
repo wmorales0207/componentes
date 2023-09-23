@@ -37,13 +37,13 @@ class _ContainedPageState extends State<ContainedPage> {
               boxShadow: [
                 BoxShadow(
                     color: _colorAsigned, // aca se define el color de la sombra
-                    offset: Offset(4.0, 4.0), //la ubicacion de la sombra
+                    offset: const Offset(4.0, 4.0), //la ubicacion de la sombra
                     blurRadius:
                         15.0, // esta realcionado tambien con la expansion de la sombra
                     spreadRadius: 1.0), // que tanto se quiere que se expanda
                 BoxShadow(
                     color: Colors.grey.shade500,
-                    offset: Offset(-4.0, -4.0),
+                    offset: const Offset(-4.0, -4.0),
                     blurRadius: 15.0,
                     spreadRadius: 1.0),
               ],

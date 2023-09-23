@@ -11,9 +11,9 @@ abstract class LocalRepositoryInterface {
 }
 
 class LocalRepositoryInterfaceImpl extends LocalRepositoryInterface {
-  String _pref_token = '';
+  final String _pref_token = '';
 
-  String _pref_username = '';
+  final String _pref_username = '';
 
   @override
   Future<void> clearAllData() async {

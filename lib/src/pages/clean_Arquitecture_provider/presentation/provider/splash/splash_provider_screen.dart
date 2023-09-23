@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
   //aqui se crea un construnctor privado que impide que esta clase si instancie
-  SplashScreen._();
+  const SplashScreen._();
 
 // aca se crea una fucion estatica que es la que se usara para instanciar la clase y vinculada con el provider necesario
   static Widget init(BuildContext context) {
-    return SplashScreen._();// aca habia codigo de un 
+    return const SplashScreen._();// aca habia codigo de un 
   }
 
   @override
@@ -27,7 +27,7 @@ class SplashScreen extends StatelessWidget {
               backgroundColor: Colors.black12,
               radius: 30,
               child: Padding(
-                padding: EdgeInsets.all(12),
+                padding: const EdgeInsets.all(12),
                 child: Image.asset('assets/darlin.jpg'),
               ),
             ),
@@ -36,7 +36,7 @@ class SplashScreen extends StatelessWidget {
             ),
             Text(
               'DeliveryApp',
-              style: Theme.of(context).textTheme.headline4!.copyWith(
+              style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                     fontWeight: FontWeight.bold,
                     //color: DeliveryColors.white,
                   ),

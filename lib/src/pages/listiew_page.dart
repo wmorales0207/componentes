@@ -10,9 +10,9 @@ class ListViewBuilderPage extends StatefulWidget {
 }
 
 class _ListViewBuilderPageState extends State<ListViewBuilderPage> {
-  ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
 
-  List<int> _listaNumeros = [];
+  final List<int> _listaNumeros = [];
 
   var _ultimoItem = 0;
   bool _isLoading = false;
@@ -87,7 +87,7 @@ class _ListViewBuilderPageState extends State<ListViewBuilderPage> {
   Future _fetchData() async {
     _isLoading = true;
     setState(() {});
-    final duration = Duration(seconds: 4);
+    const duration = Duration(seconds: 4);
 
     return Timer(duration,
         respuestaHTTP); // los parentesis no se ponen en la funcion respuestaHTTP ya que la ejecutaria en el instante y la idea
@@ -116,16 +116,16 @@ class _ListViewBuilderPageState extends State<ListViewBuilderPage> {
   Widget _crearLoading() {
     // este metodo muestra un loading que depende la la var loading
     if (_isLoading) {
-      return Column(
+      return const Column(
         // toda esta info esta asociada a poder centrar el widget en el centro inferir de la pantalla.
         children: [
           Row(
-            children: const [
+            children: [
               // este CircularProgressIndicator debe depender de otros componentes pues el setState debe jugar su papel
               CircularProgressIndicator(),
             ],
           ),
-          const SizedBox(
+          SizedBox(
             height: 15.0,
           ),
         ],
@@ -138,7 +138,7 @@ class _ListViewBuilderPageState extends State<ListViewBuilderPage> {
   Future<void> _obtenerPagina1() async {
     // me llama la atencion de que esta es una funcion que no devuelve nada sin embargo tiene un return
     // no se si por ser un future pero me causa dudas
-    final duration = Duration(seconds: 2);
+    const duration = Duration(seconds: 2);
     Timer(
       duration,
       () {

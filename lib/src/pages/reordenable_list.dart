@@ -21,13 +21,14 @@ class _ReordenableListState extends State<ReordenableList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Drag and Drop Tiles'),
+        title: const Text('Drag and Drop Tiles'),
       ),
       body: ReorderableListView(
         onReorder: (int oldIndex, int newIndex) {
           setState(() {});
-          if (newIndex > oldIndex)
+          if (newIndex > oldIndex) {
             oldIndex--; // esto es necesario porque cuando eliminas de la lista los index se corren se necesita corregirlo
+          }
 // obtengo el valor el dato enel in index anterior y lo inserto en el nuevo valor
           final oldindexValue = mytiles.removeAt(oldIndex);
           mytiles.insert(newIndex, oldindexValue);
@@ -38,7 +39,7 @@ class _ReordenableListState extends State<ReordenableList> {
               key: ValueKey(tile),
               padding: const EdgeInsets.all(8.0),
               child: ListTile(
-                trailing: Icon(Icons.paypal),
+                trailing: const Icon(Icons.paypal),
                 // flutter necesita que los componentes tengan su key para no desorientarse a la hora de idetificar a cada uno.
                 tileColor: Color.fromARGB(32, 19, Random().nextInt(150), 175),
                 selectedColor:

@@ -8,7 +8,7 @@ Drawer crearMenu(BuildContext context) {
       children: [
         DrawerHeader(
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images.jpg'),
                 fit: BoxFit.cover,
@@ -17,27 +17,27 @@ Drawer crearMenu(BuildContext context) {
           ),
         ),
         ListTile(
-          leading: Icon(
+          leading: const Icon(
             Icons.pages,
             color: Colors.blue,
           ),
-          title: Text('Pages'),
+          title: const Text('Pages'),
           onTap: () {},
         ),
         ListTile(
-          leading: Icon(
+          leading: const Icon(
             Icons.people,
             color: Colors.red,
           ),
-          title: Text('People'),
+          title: const Text('People'),
           onTap: () {},
         ),
         ListTile(
-          leading: Icon(
+          leading: const Icon(
             Icons.settings,
             color: Colors.purple,
           ),
-          title: Text('Settings'),
+          title: const Text('Settings'),
           onTap: () {
             Navigator.pop(context); // this line close the menu
             Navigator.pushNamed(

@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -43,17 +42,17 @@ class CardPage extends StatelessWidget {
             subtitle: Text('this is the subtitle'),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               TextButton(
                 onPressed: () {},
-                child: Text('Cancelar'),
+                child: const Text('Cancelar'),
               ),
               TextButton(
                 onPressed: () {},
-                child: Text('OK'),
+                child: const Text('OK'),
               ),
             ],
-            mainAxisAlignment: MainAxisAlignment.end,
           ),
         ],
       ),

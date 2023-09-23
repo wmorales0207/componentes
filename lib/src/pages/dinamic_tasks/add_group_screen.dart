@@ -2,7 +2,7 @@ import 'package:componentes/src/pages/dinamic_tasks/groups.dart';
 import 'package:flutter/material.dart';
 
 class AddGroupScreen extends StatefulWidget {
-  AddGroupScreen({super.key});
+  const AddGroupScreen({super.key});
 
   @override
   State<AddGroupScreen> createState() => _AddGroupScreenState();

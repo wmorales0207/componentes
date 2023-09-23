@@ -42,7 +42,7 @@ Map<String, WidgetBuilder> getApplicatonRoutes() => _myOwnRoutes;
 final _myOwnRoutes = <String, WidgetBuilder>{
   // de esta manera se define las rutas que hay en el proy
   // esta map crea una asociacion entre lo que se se lee en el Json y la Pag que se desea cargar
-  "/": (context) => HomePage(),
+  "/": (context) => const HomePage(),
   "person": (context) => const PersonList(),
 
   "List2": (context) => const OtherListPage(),
@@ -60,27 +60,27 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   "Hero": (context) => const HeroExample(),
   'SettingPage2': (context) => const SettingPage2(),
   'Box': (context) => const BoxContain(),
-  'ModifyCard': (context) => ModifyCardPage(),
+  'ModifyCard': (context) => const ModifyCardPage(),
   'textfield': (context) => const TextEditingControllerPage(),
   'futureBuilder': (context) => const MyStatefulWidget(),
   PositionedTile.route: (context) => const PositionedTile(),
   ReordenableList.route: (_) => const ReordenableList(),
   GroupsScreen.route: (_) => const GroupsScreen(),
   FutureBuilderGP.route: (_) => const FutureBuilderGP(),
-  NeumorphicButton.route: (_) => NeumorphicButton(),
+  NeumorphicButton.route: (_) => const NeumorphicButton(),
   UrlLauncherPage.route: (context) => const UrlLauncherPage(),
   'ReactiveForm': (context) => const ShowFormsReactiveExample(),
   'FontAwesomeIcons': (context) => const FontAwesomeIconsPage(),
-  LoginPage.route: (_) => LoginPage(),
+  LoginPage.route: (_) => const LoginPage(),
   AspectRatioAlignPage.route: (_) => const AspectRatioAlignPage(),
   InitManagmentPage.route: (context) => const InitManagmentPage(),
   IntroScreen.route: (_) => const IntroScreen(),
   CacheNetworkImagePage.route: (context) => const CacheNetworkImagePage(),
-  HomeScreen.route: (context) => HomeScreen(),
-  DetailsScreenFilm.route: (context) => DetailsScreenFilm(),
+  HomeScreen.route: (context) => const HomeScreen(),
+  DetailsScreenFilm.route: (context) => const DetailsScreenFilm(),
   MainFoddPage.route: (context) => const MainFoddPage(),
   MaindetailsScreen.route: (context) => const MaindetailsScreen(),
-  WhatsAppMain.route: (context) => WhatsAppMain(),
+  WhatsAppMain.route: (context) => const WhatsAppMain(),
 
   // si se deseara llamar desde una page a otra con pasar al metodo Navigator.pushNamed(context, String)
   // el string seria avatar 0 alert o / para ir al principal, normalmente un botton de regreso es lo que se usa

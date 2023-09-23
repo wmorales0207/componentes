@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class CounterInhereted extends InheritedWidget {
   // este child que recibe por parametros es el hijo que tendra dentro el widgtet..
   // o lo que es lo mismo la info que se desea mover o trasladar.
-  CounterInhereted({  required this.bloc, required super.child});
+  const CounterInhereted({super.key,   required this.bloc, required super.child});
   
   final MainNonBlock bloc;
   

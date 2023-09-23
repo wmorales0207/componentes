@@ -64,7 +64,7 @@ class _MainFoddPage extends State<MainFoddPage> {
             ),
 
             //  seccion del food body
-            FoodPageBody(),
+            const FoodPageBody(),
 
             SizedBox(height: height30),
             // popular text
@@ -91,7 +91,7 @@ class _MainFoddPage extends State<MainFoddPage> {
             // List of food and images
 
             ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true, // si ahilito aqui se ajusta solo el listview.
               itemCount: 10,
               itemBuilder: (context, index) {
@@ -117,7 +117,7 @@ class _MainFoddPage extends State<MainFoddPage> {
                         child: Container(
                           height: 100,
                           //width: 200,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(20),
                                 bottomRight: Radius.circular(20)),
@@ -132,10 +132,10 @@ class _MainFoddPage extends State<MainFoddPage> {
                                   .center, //vertical  axis line
                               children: [
                                 BigTexts(text: "Nutricion facts in china"),
-                                SizedBox(height: 3),
+                                const SizedBox(height: 3),
                                 SmallText(text: "form china to taiwan"),
-                                SizedBox(height: 1),
-                                Row(
+                                const SizedBox(height: 1),
+                                const Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [

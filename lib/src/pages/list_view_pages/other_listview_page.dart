@@ -16,7 +16,7 @@ class OtherListPage extends StatelessWidget {
       'post 4',
     ];
 
-    List<String> _stories = [
+    List<String> stories = [
       'Story  1',
       'Story 2',
       'Story 3',
@@ -31,7 +31,7 @@ class OtherListPage extends StatelessWidget {
           child: ListView.builder(
             itemBuilder: (context, index) {
               return MyCircle(
-                stories: _stories[index],
+                stories: stories[index],
               );
             },
             itemCount: 4,

@@ -3,17 +3,16 @@ import 'package:flutter/material.dart';
 class LoginPage extends StatefulWidget {
   static const route = 'OuthFirebase';
 
-  LoginPage({super.key});
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  /** en los metodos cuando e usa un future si que se queda esperando por los resultado  de los mismos
-   * para ejecutar lo que viene a conuntinuacion.
-   * 
-   */
+  /// en los metodos cuando e usa un future si que se queda esperando por los resultado  de los mismos
+  /// para ejecutar lo que viene a conuntinuacion.
+  /// 
   void signIN() async {
     showDialog(
       context: context,
@@ -89,9 +88,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
 
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
+                  children: [
                     Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text(

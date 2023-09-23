@@ -79,7 +79,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
     return Column(
       children: [
-        Container(
+        SizedBox(
           //color: Colors.red,
           height: pageViewContainer,
           child: PageView.builder(
@@ -194,7 +194,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       ],
                     ),
                     const SizedBox(width: 20),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconTextWidget(

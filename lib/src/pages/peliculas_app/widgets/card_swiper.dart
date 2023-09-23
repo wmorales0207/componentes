@@ -6,17 +6,17 @@ import 'package:flutter/material.dart';
 class CardSwiper extends StatelessWidget {
   final List<Movie> movies;
 // el card swiper es un pqte
-  CardSwiper({Key? key, required this.movies}) : super(key: key);
+  const CardSwiper({Key? key, required this.movies}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final _size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     //Este widget es el loading, para el caso de que la lista de películas esté vacia
     if (movies.isEmpty) {
       return Container(
         // toma todo el ancho posible
         width: double.infinity,
-        height: _size.height * 0.5,
+        height: size.height * 0.5,
         margin: const EdgeInsets.only(top: 10.0),
         child: const Center(
           child: CircularProgressIndicator(),
@@ -25,13 +25,13 @@ class CardSwiper extends StatelessWidget {
     }
     return Container(
       width: double.infinity,
-      height: _size.height * 0.5,
+      height: size.height * 0.5,
       margin: const EdgeInsets.only(top: 10.0),
       child: Swiper(
         itemCount: movies.length,
         layout: SwiperLayout.STACK,
-        itemWidth: _size.width * 0.7,
-        itemHeight: _size.height * 0.9,
+        itemWidth: size.width * 0.7,
+        itemHeight: size.height * 0.9,
         // esta line define la construccion de lo que se mostrara
         itemBuilder: (_, index) {
           // print(movies[index].title);

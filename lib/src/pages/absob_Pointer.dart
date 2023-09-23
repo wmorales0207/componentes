@@ -53,10 +53,10 @@ class HomeBody extends StatelessWidget {
             const CustomOutLiinedButton(
               width: double.infinity,
             ),
-            Row(
+            const Row(
               // como son 2 botones juntos el row los ubica y se les pueden aplicar operaciones de organizacon a los 2.
 
-              children: const [
+              children: [
                 CustomOutLiinedButton(
                   width: 200.0,
                 ),
@@ -66,10 +66,10 @@ class HomeBody extends StatelessWidget {
                 )),
               ],
             ),
-            Row(
+            const Row(
               // como son 2 botones juntos el row los ubica y se les pueden aplicar operaciones de organizacon a los 2.
 
-              children: const [
+              children: [
                 Expanded(
                     child: CustomOutLiinedButton(
                   width: double.infinity,
@@ -87,7 +87,7 @@ class HomeBody extends StatelessWidget {
                 ),
                 child: ListView.builder(
                     physics:
-                        BouncingScrollPhysics(), // look the same in android or ios
+                        const BouncingScrollPhysics(), // look the same in android or ios
                     itemBuilder: (_, i) => ListTile(
                           title: Text('${i + 1}'),
                         )),

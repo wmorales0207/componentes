@@ -1,10 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ListScreen extends StatelessWidget {
   const ListScreen({super.key, required this.onItemSelected});
 
-/**esta callback esta definida en flutter definidia para cuando un valor cambia, tambien existen otras */
+/// esta callback esta definida en flutter definidia para cuando un valor cambia, tambien existen otras
   final ValueChanged<String> onItemSelected;
   //ValueSetter<int> onhh;
   //AsyncValueGetter<int> odod;

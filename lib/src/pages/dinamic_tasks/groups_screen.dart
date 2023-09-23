@@ -19,7 +19,7 @@ class _GroupsScreenState extends State<GroupsScreen> {
     // se hace una llamada a AddGroupScreen con un show dialog ya que se necesita trabajar con el resutado de esa pantalla
     final result = await showDialog(
       context: context,
-      builder: (_) => AddGroupScreen(),
+      builder: (_) => const AddGroupScreen(),
     );
     // se realiza la insercion del grupo...en la BD
     if (result != null &&
@@ -108,7 +108,7 @@ class _GroupsScreenState extends State<GroupsScreen> {
         onPressed: () async {
           var result = await showDialog(
             context: context,
-            builder: (_) => AddGroupScreen(),
+            builder: (_) => const AddGroupScreen(),
           );
 
           try {
@@ -138,7 +138,7 @@ class _GroupsScreenState extends State<GroupsScreen> {
 class _GroupItem extends StatelessWidget {
   final Groups group;
   final VoidCallback onTap;
-  _GroupItem({super.key, required this.group, required this.onTap});
+  const _GroupItem({required this.group, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

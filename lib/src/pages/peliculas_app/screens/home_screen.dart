@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   static const route = "Peliculas";
+
+  const HomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
     //se crea una instancia del provider de peliculas ya que se va a usar en esta UI

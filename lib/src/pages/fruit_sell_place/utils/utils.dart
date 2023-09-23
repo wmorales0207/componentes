@@ -43,12 +43,12 @@ Widget priceWidget(String price) {
     text: TextSpan(children: [
       TextSpan(
         text: "\$$price",
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.bold,
         ),
       ),
-      TextSpan(
+      const TextSpan(
         text:"/kg",
         style: TextStyle(
           color: Colors.black38, 

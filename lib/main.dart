@@ -18,15 +18,17 @@ void main() async {
 // las prefrencias de usuario deben inicializarse  en la capa mas superior que se pueda , pues como es un
 // future se demorara para cargar. Al hacerlo en el main da ti
 //empo a que las variables tomen su valor.
-  final _pref = UserPreference();
-  await _pref
+  final pref = UserPreference();
+  await pref
       .initPreference(); //  El main tiene que ser async para poder poder await aqui.
 
-  runApp(AppState());
+  runApp(const AppState());
 }
 
 ////this class its created for the provider, create then on the top of the widgets tree
 class AppState extends StatelessWidget {
+  const AppState({super.key});
+
   @override
   Widget build(BuildContext context) {
     //aca se realiza la instancaicion de un provider, en este caso con acceso totan en la app

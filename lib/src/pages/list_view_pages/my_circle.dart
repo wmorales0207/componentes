@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class MyCircle extends StatelessWidget {
   final String stories;
 
-  MyCircle({required this.stories});
+  const MyCircle({super.key, required this.stories});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class MyCircle extends StatelessWidget {
         child: Center(
           child: Text(
             stories,
-            style: TextStyle(fontSize: 20, color: Colors.blue),
+            style: const TextStyle(fontSize: 20, color: Colors.blue),
           ),
         ),
       ),

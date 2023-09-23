@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ModifyCardPage extends StatefulWidget {
-  ModifyCardPage({super.key});
+  const ModifyCardPage({super.key});
 
   
 
@@ -77,7 +77,7 @@ class _ModifyCardPageState extends State<ModifyCardPage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   width: double.infinity,
                   decoration: const BoxDecoration(
                     color: Colors.red,

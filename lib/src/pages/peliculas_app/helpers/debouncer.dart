@@ -2,11 +2,9 @@ import 'dart:async';
 
 // Creditos
 // https://stackoverflow.com/a/52922130/7834829
-/**
- * Resulta que los future no se pueden detener, sig que seguiran realizando peticiones por lo que se generan 
- * solicitudes mientras haga datos. Para usar los Streams se debe usar las librereias definidas para esto
- * Cuando se implementan los Streams a traves de un devouncer en este caso)... 
- */
+/// Resulta que los future no se pueden detener, sig que seguiran realizando peticiones por lo que se generan 
+/// solicitudes mientras haga datos. Para usar los Streams se debe usar las librereias definidas para esto
+/// Cuando se implementan los Streams a traves de un devouncer en este caso)... 
 class Debouncer<T> {
   Debouncer({required this.duration, this.onValue});
 
@@ -26,7 +24,7 @@ class Debouncer<T> {
     _timer?.cancel();
     // esta linea se define que cuando el duration llegue a cero se ejecuta el onvalue
     // o lo que es lo mismo que cuando se cumpla el tiempo se ejecute e metodo.
-    _timer = Timer(duration, () => onValue!(_value!));
+    _timer = Timer(duration, () => onValue!(_value as T));
   }
 }
 

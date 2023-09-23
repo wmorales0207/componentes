@@ -25,22 +25,22 @@ class InitManagmentPage extends StatelessWidget {
           children: [
             ElevatedButton.icon(
                 onPressed: noPackage,
-                icon: Icon(Icons.call_end),
-                label: Text('No Package')),
+                icon: const Icon(Icons.call_end),
+                label: const Text('No Package')),
             const SizedBox(
               height: 30,
             ),
             ElevatedButton.icon(
                 onPressed: providerPackage,
-                icon: Icon(Icons.personal_video),
-                label: Text('provider')),
+                icon: const Icon(Icons.personal_video),
+                label: const Text('provider')),
             const SizedBox(
               height: 30,
             ),
             ElevatedButton.icon(
                 onPressed: flutterBloc,
-                icon: Icon(Icons.block),
-                label: Text('Flutter Bloc')),
+                icon: const Icon(Icons.block),
+                label: const Text('Flutter Bloc')),
           ],
         ),
       ),

@@ -7,7 +7,7 @@ import 'package:componentes/src/utils/icono_strings.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
       return [];
     } // al recibir un List<dynamic>? data que podrias ser null me obliga a verificarlo.
 
-    data.forEach((element) {
+    for (var element in data) {
       final Widget temp = ListTile(
         title: Text(element['texto']),
         leading: getIcon(element[
@@ -142,7 +142,7 @@ class _HomePageState extends State<HomePage> {
       );
       opciones.add(temp);
       opciones.add(const Divider());
-    });
+    }
     return opciones;
   }
 

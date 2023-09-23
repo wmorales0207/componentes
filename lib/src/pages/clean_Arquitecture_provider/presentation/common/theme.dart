@@ -14,12 +14,17 @@ final borderDark = OutlineInputBorder(
 final ligthTheme = ThemeData(
   appBarTheme: AppBarTheme(
     //color: DeliveryColors.white,
-    textTheme: GoogleFonts.poppinsTextTheme().copyWith(
-        headline6: const TextStyle(
+    toolbarTextStyle: GoogleFonts.poppinsTextTheme().copyWith(
+        titleLarge: const TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 20,
       //color: DeliveryColors.purpple,
-    )),
+    )).bodyMedium, titleTextStyle: GoogleFonts.poppinsTextTheme().copyWith(
+        titleLarge: const TextStyle(
+      fontWeight: FontWeight.bold,
+      fontSize: 20,
+      //color: DeliveryColors.purpple,
+    )).titleLarge,
   ),
   //canvasColor: DeliveryColors.white
   colorScheme:const ColorScheme.dark(), 

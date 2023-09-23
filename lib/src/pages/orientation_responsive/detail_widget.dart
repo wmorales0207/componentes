@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class DetailWidget extends StatefulWidget {
   final int data;
-  DetailWidget(this.data);
+  const DetailWidget(this.data, {super.key});
   @override
   _DetailWidgetState createState() => _DetailWidgetState();
 }
@@ -15,7 +15,7 @@ class _DetailWidgetState extends State<DetailWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(widget.data.toString(), style: TextStyle(fontSize: 36.0, color: Colors.white),),
+            Text(widget.data.toString(), style: const TextStyle(fontSize: 36.0, color: Colors.white),),
           ],
         ),
       ),

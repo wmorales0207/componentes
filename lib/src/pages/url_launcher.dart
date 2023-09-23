@@ -43,7 +43,7 @@ openWhatsApp()async{
                   openWhatsApp();
                   
                 },
-                icon: const Icon(Icons.whatsapp),
+                icon: const Icon(Icons.other_houses),
                 label: const Text('Whatsapp'),
               ),
             ],

@@ -20,7 +20,7 @@ class NoPackgePage extends StatelessWidget {
       // que en este caso es la info que se desea mover, o sea la clase que hereda de Change Notifier.
       home: CounterInhereted(
         bloc: MainNonBlock(service),
-        child: NoPackage(
+        child: const NoPackage(
           title: 'No pa',
         ),
       ),
@@ -29,7 +29,7 @@ class NoPackgePage extends StatelessWidget {
 }
 
 class NoPackage extends StatefulWidget {
-  NoPackage({super.key, this.title});
+  const NoPackage({super.key, this.title});
   final String? title;
 // service se injecta desde la clase superior del arbol y se ijecta la dependencia pero a traves de la interfaz creada.
   //final CounterRepository service;
@@ -99,7 +99,7 @@ class _NoPackageState extends State<NoPackage> {
             _CounterBody(counter: bloc.counter),
           ],
         ),
-        floatingActionButton: CounterButton());
+        floatingActionButton: const CounterButton());
   }
 }
 
@@ -140,7 +140,7 @@ class CounterText extends StatelessWidget {
         builder: (BuildContext context, _) {
           return Text(
             '${bloc.counter}',
-            style: Theme.of(context).textTheme.headline4,
+            style: Theme.of(context).textTheme.headlineMedium,
           );
         },
       ),

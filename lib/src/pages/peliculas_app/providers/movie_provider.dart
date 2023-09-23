@@ -7,9 +7,9 @@ import 'package:http/http.dart' as http;
 
 // la clase provider esta dise;ada para proveer informacion y la extends ChangeNotifier es obligatoria para ser usado como provider
 class MoviesProvider extends ChangeNotifier {
-  String _apiKey = 'f32ccd05c2611150e4ed3ffe3e2c5093';
-  String _baseUrl = 'api.themoviedb.org';
-  String _lenguage = 'es-ES';
+  final String _apiKey = 'f32ccd05c2611150e4ed3ffe3e2c5093';
+  final String _baseUrl = 'api.themoviedb.org';
+  final String _lenguage = 'es-ES';
 
   // esta var esta para poder incrementar la page y poder implementar el infinite scroll
   int _page = 0;
@@ -32,10 +32,10 @@ class MoviesProvider extends ChangeNotifier {
       Debouncer<String>(duration: const Duration(milliseconds: 500));
 
   final StreamController<List<Movie>> _suggestionsStreamController =
-      new StreamController.broadcast();
+      StreamController.broadcast();
 
   Stream<List<Movie>> get suggestionStreams =>
-      this._suggestionStreamController.stream;
+      _suggestionStreamController.stream;
 
   MoviesProvider() {
     //getOnDisplayMovies(); // testing
@@ -98,7 +98,7 @@ class MoviesProvider extends ChangeNotifier {
     if (movieCasts.containsKey(idmovie)) return movieCasts[idmovie]!;
     //Si no contiene la lista de actores de la pelicula hago un petición
     //http y la guardo en memoria
-    final jsonData = await this._getJsonData('/3/movie/$idmovie/credits');
+    final jsonData = await _getJsonData('/3/movie/$idmovie/credits');
     final movieCredits = MovieCredits.fromJson(jsonData);
     movieCasts[idmovie] = movieCredits.cast;
     return movieCredits.cast;
@@ -114,7 +114,7 @@ class MoviesProvider extends ChangeNotifier {
     mydebouncer.value = '';
     mydebouncer.onValue = (value) async {
       final result = await getMoviesSearch(movietitle: query);
-      this._suggestionStreamController.add(result);
+      _suggestionStreamController.add(result);
     };
 
     final timer = Timer.periodic(const Duration(milliseconds: 300), (_) {
@@ -129,8 +129,9 @@ class MoviesProvider extends ChangeNotifier {
     final url = Uri.https(_baseUrl, '/3/search/movie',
         {'api_key': _apiKey, 'lenguage': _lenguage, 'query': movietitle});
     final response = await http.get(url);
-    if (response.statusCode == 200)
+    if (response.statusCode == 200) {
       return MoviesFound.fromJson(response.body).results;
+    }
     return [];
   }
 }

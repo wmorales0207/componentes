@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 class DetailsScreenFilm extends StatelessWidget {
   static const route = "details";
+
+  const DetailsScreenFilm({super.key});
   @override
   Widget build(BuildContext context) {
     //de esta forma se recogen los datos que fueron pasados como argumentos a DetailsScreen desde Navigator.pushNamed en MovieSlider
@@ -105,13 +107,13 @@ class _PosterAndTitle extends StatelessWidget {
             children: [
               Text(
                 movie.getTitle,
-                style: textTheme.headline5,
+                style: textTheme.headlineSmall,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 3,
               ),
               Text(
                 movie.originalTitle,
-                style: textTheme.subtitle1,
+                style: textTheme.titleMedium,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
               ),
@@ -127,7 +129,7 @@ class _PosterAndTitle extends StatelessWidget {
                   ),
                   Text(
                     '${movie.voteAverage}',
-                    style: textTheme.caption,
+                    style: textTheme.bodySmall,
                   )
                 ],
               ),
@@ -151,7 +153,7 @@ class _OverView extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Text(
         overview,
-        style: Theme.of(context).textTheme.subtitle2,
+        style: Theme.of(context).textTheme.titleSmall,
         textAlign: TextAlign.justify,
       ),
     );

@@ -16,9 +16,10 @@ class MovieSearchDelegate extends SearchDelegate {
   List<Widget>? buildActions(BuildContext context) {
     // TODO: implement buildActions
     return [
-      IconButton(onPressed: () => query = "", icon: Icon(FontAwesomeIcons.x)),
+      IconButton(onPressed: () => query = "", icon: const Icon(FontAwesomeIcons.x)),
     ];
   }
+
 
   @override
   Widget? buildLeading(BuildContext context) {

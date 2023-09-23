@@ -43,15 +43,15 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
   }
 
   void _cambiarForma() {
-    final _ramdom = Random();
+    final ramdom = Random();
 
     setState(() {
       // es la forma de lanzar el evento del button
-      _width = _ramdom.nextInt(300).toDouble();
-      _height = _ramdom.nextInt(300).toDouble();
+      _width = ramdom.nextInt(300).toDouble();
+      _height = ramdom.nextInt(300).toDouble();
       _color = Color.fromRGBO(
-          _ramdom.nextInt(255), _ramdom.nextInt(255), _ramdom.nextInt(255), 1);
-      _borderRadius = BorderRadius.circular(_ramdom.nextInt(100).toDouble());
+          ramdom.nextInt(255), ramdom.nextInt(255), ramdom.nextInt(255), 1);
+      _borderRadius = BorderRadius.circular(ramdom.nextInt(100).toDouble());
     });
   }
 }

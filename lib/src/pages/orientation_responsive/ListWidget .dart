@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-typedef Null ItemSelectedCallback(int value);
+typedef ItemSelectedCallback = void Function(int value);
 
 class ListWidget extends StatefulWidget {
   final int count;
   final ItemSelectedCallback onItemSelected;
   const ListWidget(
     this.count,
-    this.onItemSelected,
+    this.onItemSelected, {super.key}
   );
   @override
   _ListWidgetState createState() => _ListWidgetState();
