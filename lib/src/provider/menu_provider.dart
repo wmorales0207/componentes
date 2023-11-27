@@ -2,7 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart' show rootBundle;
 
-// paque definido para leer Json, rootBundle es la parte del pqte que necesitamos
+// De esta manera se realiza una exportacion del rootBundle o se hace visible, necesario para  leer el Json.
+// paquete definido para leer Json, rootBundle es la parte del pqte que necesitamos y de esa manera se define
 // esta clase es privada
 class _MenuProvider {
   List<dynamic> opciones = [];
@@ -10,7 +11,8 @@ class _MenuProvider {
   _MenuProvider() {
     cargarData();
   }
-   // esta funcion devuelve un future que la forma mas conveniente.  
+  // esta funcion devuelve un future que la forma mas conveniente. El Future permite la ejecucion 
+  //Un future tiene varios estados cuando esta buscando datos, cuando se resuelve y cuando da un error.
   Future<List<dynamic>> cargarData() async {
     final resp = await rootBundle.loadString('data/menu_opts.json');
     Map dataMap = json.decode(resp); // usa la libreria import 'dart:convert';
@@ -23,4 +25,4 @@ class _MenuProvider {
 }
 
 final menuProvider =
-    _MenuProvider(); // de esta manera se expone la clase para ser referenciadad en otras clases.
+    _MenuProvider(); // de esta manera se expone la instancia para ser referenciada, tambien solo se usara una vez

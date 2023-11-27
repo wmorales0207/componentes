@@ -33,8 +33,9 @@ class AlertPage extends StatelessWidget {
   void _mostrarAlerta(BuildContext context) {
     showDialog(
       context: context,
-      barrierDismissible: true, // sta campo define si se cerrara con clic fuera
-      // funcion encargada de crar el pop up de la alerta
+      barrierDismissible:
+          true, // Este campo define si se cerrara con clic fuera
+      // funcion encargada de crear el pop up de la alerta
       builder: (context) {
         return AlertDialog(
           //definiendo los detalles de shape
@@ -53,12 +54,14 @@ class AlertPage extends StatelessWidget {
           ),
           actions: <Widget>[
             ElevatedButton(
-              onPressed: () => Navigator.of(context).pop(),
+              onPressed: () => Navigator.of(context)
+                  .pop(), // de esta manera devolvemos el controla al widget que la creo
               child: const Text('OK'),
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(context)
+                    .pop(); // de esta manera devolvemos el controla al widget que la creo
               },
               child: const Text('CANCELAR'),
             ),

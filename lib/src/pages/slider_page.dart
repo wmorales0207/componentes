@@ -18,16 +18,12 @@ class _SliderPAgeState extends State<SliderPAge> {
       appBar: AppBar(
         title: const Text('Sliders'),
       ),
-      body: Container(
-        // padding: const EdgeInsets.only(
-        //     top: 10.0), // separacion en la parte superior del Slider
-        child: Column(
-          children: <Widget>[
-            _creaSlider(),
-            _crearCheckBox(),
-            Expanded(child: _crearImagen()),
-          ],
-        ),
+      body: Column(
+        children: <Widget>[
+          _creaSlider(),
+          _crearCheckBox(),
+          Expanded(child: _crearImagen()),
+        ],
       ),
     );
   }

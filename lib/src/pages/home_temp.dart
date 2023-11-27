@@ -30,10 +30,14 @@ class HomePageTemp extends StatelessWidget {
             const Icon(Icons.keyboard_arrow_right), // el icono que va detras
         onTap: () {}, // habilita el clic
       );
-      list.add(auxWidget);
-      list.add(const Divider(
-        color: Colors.black,
-      ));
+      list
+        ..add(
+            auxWidget) // usando el .. sig que a;ada el aux y despues el divider a continuacion.
+        ..add(
+          const Divider(
+            color: Colors.black,
+          ),
+        );
     }
     return list;
   }
@@ -41,19 +45,24 @@ class HomePageTemp extends StatelessWidget {
 //revisar este metodo que tiene problemas.
   List<Widget> _crearItemsCorta() {
     List listValue = ['uno', 'dos', 'tres', 'tres', 'tres', 'seis'];
-    List<Widget> salida = [];
+    //List<Widget> salida = [];
 
-    var output = listValue.map((e) => {
+    return listValue.map((e) {
+      return Column(
+        children: [
           ListTile(
-            title: e,
-          )
-        });
-    // la variable output obtiene un Iterable<Set<Widget>> por lo que es necesario metersed entro parasacar la info
-    for (var element in output) {
-      for (var element in element) {
-        salida.add(element);
-      }
-    }
-    return salida;
+            title: Text(e),
+            subtitle: const Text("subtitle"),
+            trailing: const Icon(Icons.double_arrow),
+          ),
+          const Divider(),
+        ],
+      );
+    }).toList(); // es necesario devolver un listado de Listtitle.
+    // la variable output obtiene un Iterable<Set<Widget>> por lo que es necesario meterse dentro para sacar la info
+    //for (var element in output) {
+    //salida.add(element);
+    //}
+    //return salida;
   }
 }

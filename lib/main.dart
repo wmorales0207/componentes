@@ -65,7 +65,8 @@ class MyApp extends StatelessWidget {
 
       //home:HomePage(),
       initialRoute: _pref.ultimaPagina, // define una ruta por defecto
-      routes: getApplicatonRoutes(),
+      routes: getApplicatonRoutes(),// aca se definen las rutas , necesarias para poder usar el Navigator.pushNamed
+
       // el theme es un asunto que define el como se ve toda la app el light y dar son por defecto y con el
       // copywith se le introducen modificaciones.
       theme: ThemeData.light().copyWith(

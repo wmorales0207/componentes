@@ -21,7 +21,6 @@ class _HomePageState extends State<HomePage> {
     AccountPage(),
     PersonPage(),
   ];
-  
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +79,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _lista() {
-    //print(menuProvider.cargarData()); // imprime por consola lo que leyo del JSON.
+    print(menuProvider.cargarData());
+    // imprime por consola lo que leyo del JSON.
     //print(menuProvider
     //  .opciones); //  aca aunque se hace una llamada a la clase menu provider y su contructor,
     // en la consola no se muesra resultado devido a que el hot reload no crea nuevas instancias y
@@ -126,7 +126,9 @@ class _HomePageState extends State<HomePage> {
           color: Colors.green,
         ),
         onTap: () {
-          Navigator.pushNamed(context, element['ruta']); // segun
+          Navigator.pushNamed(context,
+              element['ruta']); // Para usar las rutas es necesario realizar
+          // una configuracion en el main.. {routes}
 
           /* final route =
               MaterialPageRoute(builder: (context) => const AlertPage());
