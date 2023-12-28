@@ -1,3 +1,4 @@
+import 'package:componentes/src/pages/performace_tips/const_use/tip_1.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -38,6 +39,11 @@ final _icons = <String, IconData>{
   'MainFoddPage': FontAwesomeIcons.bowlFood,
   'ValueChanged': FontAwesomeIcons.chargingStation,
   'WhatsAppMain': FontAwesomeIcons.whatsapp,
+  'Const': FontAwesomeIcons.coins,
+  'widget': FontAwesomeIcons.wind,
+  'ValueNotifier': Icons.vertical_align_center_sharp,
+
+  
 
   
 };

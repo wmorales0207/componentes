@@ -7,7 +7,6 @@ import 'package:componentes/src/pages/alert_page.dart';
 import 'package:componentes/src/pages/animated_container.dart';
 import 'package:componentes/src/pages/aspect_ratio_align.dart';
 import 'package:componentes/src/pages/avatar_page.dart';
-import 'package:componentes/src/pages/dinamic_tasks/groups_screen.dart';
 import 'package:componentes/src/pages/fit_box.dart';
 import 'package:componentes/src/pages/card_pages.dart';
 import 'package:componentes/src/pages/contained_page.dart';
@@ -25,6 +24,9 @@ import 'package:componentes/src/pages/modifyproducts/modify_card.dart';
 import 'package:componentes/src/pages/nuemorphicbutton.dart';
 import 'package:componentes/src/pages/peliculas_app/screens/details_screen_film.dart';
 import 'package:componentes/src/pages/peliculas_app/screens/home_screen.dart';
+import 'package:componentes/src/pages/performace_tips/const_use/tip_1.dart';
+import 'package:componentes/src/pages/performace_tips/const_use/tip_2.dart';
+import 'package:componentes/src/pages/performace_tips/const_use/tip_3.dart';
 import 'package:componentes/src/pages/persona_list.dart';
 import 'package:componentes/src/pages/reordenable_list.dart';
 import 'package:componentes/src/pages/slider_page.dart';
@@ -65,7 +67,7 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   'futureBuilder': (context) => const MyStatefulWidget(),
   PositionedTile.route: (context) => const PositionedTile(),
   ReordenableList.route: (_) => const ReordenableList(),
-  GroupsScreen.route: (_) => const GroupsScreen(),
+  //GroupsScreen.route: (_) => const GroupsScreen(),
   FutureBuilderGP.route: (_) => const FutureBuilderGP(),
   NeumorphicButton.route: (_) => const NeumorphicButton(),
   UrlLauncherPage.route: (context) => const UrlLauncherPage(),
@@ -81,6 +83,9 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   MainFoddPage.route: (context) => const MainFoddPage(),
   MaindetailsScreen.route: (context) => const MaindetailsScreen(),
   WhatsAppMain.route: (context) => const WhatsAppMain(),
+  Tip1.route: (context) => const Tip1(),
+  Tip2.route: (context) => const Tip2(),
+  Tip3.route: (context) => const Tip3(),
 
   // si se deseara llamar desde una page a otra con pasar al metodo Navigator.pushNamed(context, String)
   // el string seria avatar 0 alert o / para ir al principal, normalmente un botton de regreso es lo que se usa

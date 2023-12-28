@@ -7,6 +7,21 @@
             "texto":"Alertas"
         },
         {
+            "ruta":"Const",
+            "icon":"Const",
+            "texto":" Optimizacion 1 "
+        },
+        {
+            "ruta":"ValueNotifier",
+            "icon":"ValueNotifier",
+            "texto":" Optimizacion 2 ValueNotifier "
+        },
+        {
+            "ruta":"widget",
+            "icon":"widget",
+            "texto":" Optimizacion 3 method-widget  "
+        },
+        {
             "ruta":"key",
             "icon":"key",
             "texto":"Some Keys"
