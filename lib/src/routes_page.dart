@@ -27,6 +27,12 @@ import 'package:componentes/src/pages/peliculas_app/screens/home_screen.dart';
 import 'package:componentes/src/pages/performace_tips/const_use/tip_1.dart';
 import 'package:componentes/src/pages/performace_tips/const_use/tip_2.dart';
 import 'package:componentes/src/pages/performace_tips/const_use/tip_3.dart';
+import 'package:componentes/src/pages/performace_tips/const_use/tip_4.dart';
+import 'package:componentes/src/pages/performace_tips/const_use/tip_5.dart';
+import 'package:componentes/src/pages/performace_tips/const_use/tip_6.dart';
+import 'package:componentes/src/pages/performace_tips/const_use/tip_7.dart';
+
+
 import 'package:componentes/src/pages/persona_list.dart';
 import 'package:componentes/src/pages/reordenable_list.dart';
 import 'package:componentes/src/pages/slider_page.dart';
@@ -86,6 +92,11 @@ final _myOwnRoutes = <String, WidgetBuilder>{
   Tip1.route: (context) => const Tip1(),
   Tip2.route: (context) => const Tip2(),
   Tip3.route: (context) => const Tip3(),
+  Tip4.route: (context) => const Tip4(),
+  Tip5.route: (context) => const Tip5(),
+  Tip6.route: (context) => const Tip6(),
+  Tip7.route: (context) => const Tip7(),
+
 
   // si se deseara llamar desde una page a otra con pasar al metodo Navigator.pushNamed(context, String)
   // el string seria avatar 0 alert o / para ir al principal, normalmente un botton de regreso es lo que se usa

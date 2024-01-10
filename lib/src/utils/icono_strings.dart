@@ -42,6 +42,17 @@ final _icons = <String, IconData>{
   'Const': FontAwesomeIcons.coins,
   'widget': FontAwesomeIcons.wind,
   'ValueNotifier': Icons.vertical_align_center_sharp,
+  'ItemExtend': Icons.extension,
+  'Animated': Icons.analytics,
+  'ListViewGridView': Icons.list,
+  'NOOOOListView': Icons.no_accounts,
+
+  
+
+  
+
+
+
 
   
 

@@ -47,7 +47,8 @@ class _Tip1State extends State<Tip1> {
 }
 
 class BackgroundWidget extends StatelessWidget {
-  // adadiendo aca que esta clase tiene un constructor const se garantza que no se redibuje, y quitando el setstate del metodo onpressed
+
+  // adadiendo aca que esta clase tiene un constructor const se garantiza que no se redibuje
   const BackgroundWidget({super.key});
 
   @override

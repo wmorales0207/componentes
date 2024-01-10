@@ -9,10 +9,10 @@ class Tip3 extends StatefulWidget {
 }
 
 class _Tip3State extends State<Tip3> {
-/**La esencia de este tip viene de definir si es mejro crear wwidgets o metodos.
+/**La esencia de este tip viene de definir si es mejor crear wwidgets o metodos.
  * al parecer la creacion de widgets es mas eficiente que de metodos.
  * flutter tiene mejores mecanismos de performace para los widgets que para los metodos.
- * en el caso de las animaciones el animated no se da cuenta que el circle y el squer son diferentes
+ * en el caso de las animaciones el animated no se da cuenta que el circle y el square son diferentes
  * y no los anima... solo es un pequeno ejemplo
  * 
  */

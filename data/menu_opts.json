@@ -19,7 +19,27 @@
         {
             "ruta":"widget",
             "icon":"widget",
-            "texto":" Optimizacion 3 method-widget  "
+            "texto":" Optimizacion 3 method-widget"
+        },
+        {
+            "ruta":"ItemExtend",
+            "icon":"ItemExtend",
+            "texto":"Optimizacion 4 Item Extend listView"
+        },
+        {
+            "ruta":"Animated",
+            "icon":"Animated",
+            "texto":"Optimizacion 5 avoid innecesary Animated "
+        },
+        {
+            "ruta":"ListViewGridView",
+            "icon":"ListViewGridView",
+            "texto":"Optimizacion 6 Long List ListView GridViews "
+        },
+        {
+            "ruta":"NOOOOListView",
+            "icon":"NOOOOListView",
+            "texto":"Optimizacion 7 Multimples Scrolls NOOOOListView"
         },
         {
             "ruta":"key",
